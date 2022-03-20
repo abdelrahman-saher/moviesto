@@ -6,6 +6,8 @@ import 'package:moviesto/domain/sign_up/repositories/signup_repository.dart';
 class SignupWithFacebook {
   SignupWithFacebook(this.signUpRepository);
   final SignupRepository signUpRepository;
+  //starts singing in with facebook then returns the social credential
+  //then redirects to the signup page with the social credential
   Future<Either<SignupFailures, SocialCredential>> call() async {
     return await signUpRepository.signupWithFacebook();
   }

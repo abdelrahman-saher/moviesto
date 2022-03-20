@@ -9,6 +9,7 @@ import '../entities/user.dart';
 class CreateUserWithSocial {
   CreateUserWithSocial(this.signUpRepository);
   final SignupRepository signUpRepository;
+  //creting user with user details and social credentials then returns unit if signup successfull or failure if not
   Future<Either<SignupFailures, Unit>> call(
       {@required User? user, @required SocialCredential? credential}) async {
     return await signUpRepository.createUserWithSocial(
