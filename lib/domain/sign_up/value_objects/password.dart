@@ -12,16 +12,20 @@ class PasswordVO extends ValueObject<String> {
     if (ValueValidator.validatePassword(input)) {
       return PasswordVO._(right(input));
     } else {
-      return PasswordVO._(left(ValueFailure.invalidPassword(
-          failedValue: _getErrorMessage())));
+      return PasswordVO._(
+          left(ValueFailure.invalidPassword(failedValue: _getErrorMessage())));
     }
   }
 
   const PasswordVO._(this.value);
 
-  static String? _getErrorMessage(){
-    // to return error message in multiple language 
+  static String? _getErrorMessage() {
+    // to return error message in multiple language
     // so this fn will be used to get error value from i10n file
     return "Oops! Your Password Is Not Correct";
   }
+}
+
+class NoPassword extends PasswordVO {
+  const NoPassword() : super._(const Right(""));
 }
