@@ -30,6 +30,18 @@ void main(){
         NameVO nameVO = NameVO(notValidName);
         nameVO.value.fold((l) => expect(l, isA<InvalidName>()), (_) => {});
       });
+    });
+    group("getFailureValue test -", () {
+      test("if name is valid should return null", () {
+        NameVO nameVO = NameVO(validName);
+        expect(nameVO.getFailureValue(), null);
+      });
+      test(
+          "if name is not valid should return InvalidName failure string value",
+          () {
+        NameVO nameVO = NameVO(notValidName);
+        expect(nameVO.getFailureValue(), isA<String?>());
+      });
     });     
   });
 }

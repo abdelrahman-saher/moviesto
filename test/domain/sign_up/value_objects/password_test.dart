@@ -30,6 +30,18 @@ void main(){
         PasswordVO passwordVO = PasswordVO(notValidPassword);
         passwordVO.value.fold((l) => expect(l, isA<InvalidPassword>()), (_) => {});
       });
+    });
+    group("getFailureValue test -", () {
+      test("if password is valid should return null", () {
+        PasswordVO passwordVO = PasswordVO(validPassword);
+        expect(passwordVO.getFailureValue(), null);
+      });
+      test(
+          "if password is not valid should return InvalidPassword failure string value",
+          () {
+        PasswordVO passwordVO = PasswordVO(notValidPassword);
+        expect(passwordVO.getFailureValue(), isA<String?>());
+      });
     });     
   });
 }

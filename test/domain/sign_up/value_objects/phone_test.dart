@@ -31,5 +31,17 @@ void main(){
         phoneVO.value.fold((l) => expect(l, isA<InvalidPhone>()), (_) => {});
       });
     });     
+    group("getFailureValue test -", () {
+      test("if phone is valid should return null", () {
+        PhoneVO phoneVO = PhoneVO(validPhone);
+        expect(phoneVO.getFailureValue(), null);
+      });
+      test(
+          "if phone is not valid should return InvalidPhone failure string value",
+          () {
+        PhoneVO phoneVO = PhoneVO(notValidPhone);
+        expect(phoneVO.getFailureValue(), isA<String?>());
+      });
+    }); 
   });
 }
