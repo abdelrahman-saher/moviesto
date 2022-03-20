@@ -15,7 +15,8 @@ class ValueValidator {
     const reg = r"""[^()[\]{}*&^%$#@!1234657980]+$""";
     return input.length >= 2 && RegExp(reg).hasMatch(input) && input.isNotEmpty;
   }
-
+  //validate phone numbers in Egypt
+  // so it must start with 00201/+201 and phone number length must be 11
   static bool validatePhone(String input) {
     const regEg = r"""^(00201|\+201|01)(0|1|2|5)([0-9]{8})$""";
     return RegExp(regEg).hasMatch(input);

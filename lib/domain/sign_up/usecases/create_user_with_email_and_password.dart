@@ -8,6 +8,7 @@ import '../entities/user.dart';
 class CreateUserWithEmailAndPassword {
   CreateUserWithEmailAndPassword(this.signUpRepository);
   final SignupRepository signUpRepository;
+    //creting user with user details which contain email and password then returns unit if signup successfull or failure if not
   Future<Either<SignupFailures, Unit>> call({@required User? user}) async {
     return await signUpRepository.createUserWithEmailAndPassword(
       user: user,

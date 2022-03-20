@@ -26,6 +26,8 @@ class PasswordVO extends ValueObject<String> {
   }
 }
 
+// in case of creating user with social media account
+// so no need for password
 class NoPassword extends PasswordVO {
   const NoPassword() : super._(const Right(""));
 }
