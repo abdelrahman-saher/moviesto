@@ -9,7 +9,7 @@ abstract class SignupRepository {
   Future<Either<SignupFailures, SocialCredential>> signupWithFacebook();
   Future<Either<SignupFailures, SocialCredential>> signupWithGoogle();
   Future<Either<SignupFailures, Unit>> createUserWithEmailAndPassword(
-      {@required User? user});
+      {@required UserEnitity? user});
   Future<Either<SignupFailures, Unit>> createUserWithSocial(
-      {@required User? user, @required SocialCredential? credential});
+      {@required UserEnitity? user, @required SocialCredential? credential});
 }

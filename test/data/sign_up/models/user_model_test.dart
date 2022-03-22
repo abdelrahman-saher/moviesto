@@ -9,7 +9,7 @@ import 'package:moviesto/domain/sign_up/value_objects/phone.dart';
 void main() {
   const UserModel userModel = UserModel(
       '123', 'fname', 'sname', '00201012345678', 'test@test.com', 'Pass123');
-  final User user = User(
+  final UserEnitity user = UserEnitity(
     uid: '123',
     firstName: NameVO('fname'),
     secondName: NameVO('sname'),

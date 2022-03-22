@@ -4,13 +4,13 @@ import 'package:moviesto/domain/sign_up/value_objects/name.dart';
 import 'package:moviesto/domain/sign_up/value_objects/password.dart';
 import 'package:moviesto/domain/sign_up/value_objects/phone.dart';
 
-class User {
+class UserEnitity {
   final String? uid;
   final NameVO? firstName, secondName;
   final PhoneVO? phoneNumber;
   final EmailVO? email;
   final PasswordVO? password;
-  User({
+  UserEnitity({
     @required this.uid,
     @required this.firstName,
     @required this.secondName,

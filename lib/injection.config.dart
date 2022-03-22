@@ -12,7 +12,9 @@ import 'package:get_storage/get_storage.dart' as _i6;
 import 'package:google_sign_in/google_sign_in.dart' as _i7;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'data/core/injectable_modules.dart'
+import 'data/core/injectable_modules.dart' as _i10;
+import 'data/sign_up/repositories/signup_repository_impl.dart' as _i9;
+import 'domain/sign_up/repositories/signup_repository.dart'
     as _i8; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
@@ -26,7 +28,9 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i5.FirebaseFirestore>(() => injectableModule.firestore);
   gh.lazySingleton<_i6.GetStorage>(() => injectableModule.box);
   gh.lazySingleton<_i7.GoogleSignIn>(() => injectableModule.googleSignIn);
+  gh.factory<_i8.SignupRepository>(
+      () => _i9.SignupRepositoryImpl(get<_i4.FirebaseAuth>()));
   return get;
 }
 
-class _$InjectableModule extends _i8.InjectableModule {}
+class _$InjectableModule extends _i10.InjectableModule {}

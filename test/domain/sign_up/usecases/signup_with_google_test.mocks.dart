@@ -51,16 +51,18 @@ class MockSignupRepository extends _i1.Mock implements _i3.SignupRepository {
                       _i6.SocialCredential>())) as _i4
           .Future<_i2.Either<_i5.SignupFailures<dynamic>, _i6.SocialCredential>>);
   @override
-  _i4.Future<_i2.Either<_i5.SignupFailures<dynamic>, _i2.Unit>>
-      createUserWithEmailAndPassword({_i7.User? user}) => (super.noSuchMethod(
+  _i4.Future<
+      _i2.Either<_i5.SignupFailures<dynamic>,
+          _i2.Unit>> createUserWithEmailAndPassword({_i7.UserEnitity? user}) =>
+      (super.noSuchMethod(
           Invocation.method(#createUserWithEmailAndPassword, [], {#user: user}),
-          returnValue: Future<
-                  _i2.Either<_i5.SignupFailures<dynamic>, _i2.Unit>>.value(
-              _FakeEither_0<_i5.SignupFailures<dynamic>, _i2.Unit>())) as _i4
+          returnValue:
+              Future<_i2.Either<_i5.SignupFailures<dynamic>, _i2.Unit>>.value(
+                  _FakeEither_0<_i5.SignupFailures<dynamic>, _i2.Unit>())) as _i4
           .Future<_i2.Either<_i5.SignupFailures<dynamic>, _i2.Unit>>);
   @override
   _i4.Future<_i2.Either<_i5.SignupFailures<dynamic>, _i2.Unit>> createUserWithSocial(
-          {_i7.User? user, _i6.SocialCredential? credential}) =>
+          {_i7.UserEnitity? user, _i6.SocialCredential? credential}) =>
       (super.noSuchMethod(
           Invocation.method(#createUserWithSocial, [],
               {#user: user, #credential: credential}),

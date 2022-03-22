@@ -11,7 +11,7 @@ class UserModel extends Equatable {
     this.email,
     this.password,
   );
-  factory UserModel.fromDomain(User user) {
+  factory UserModel.fromDomain(UserEnitity user) {
     return UserModel(
       user.uid,
       user.firstName!.getNotNullValue(),

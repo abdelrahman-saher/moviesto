@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:moviesto/domain/sign_up/entities/social_credential.dart';
-import 'package:moviesto/domain/sign_up/entities/user.dart' as UserEntity;
+import 'package:moviesto/domain/sign_up/entities/user.dart';
 import 'package:moviesto/domain/sign_up/repositories/signup_repository.dart';
 import 'package:moviesto/domain/sign_up/usecases/create_user_with_social.dart';
 import 'package:moviesto/domain/sign_up/value_objects/email.dart';
@@ -20,7 +20,7 @@ void main() {
     mockSignupRepository = MockSignupRepository();
     usecase = CreateUserWithSocial(mockSignupRepository);
   });
-  final UserEntity.User? user = UserEntity.User(
+  final UserEnitity? user = UserEnitity(
     uid: "uid",
     firstName: NameVO("firstName"),
     secondName: NameVO("secondName"),
