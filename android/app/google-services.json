@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "715468893610",
+    "project_id": "moviesto-24e65",
+    "storage_bucket": "moviesto-24e65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715468893610:android:35550c12d97f2d130a4fd3",
+        "android_client_info": {
+          "package_name": "com.example.moviesto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715468893610-duv0apgf974dh74tv8sp1gkht5tmssec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAupoD1mGF8WFmnocKBkN3xr9k7PFq2XGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715468893610-duv0apgf974dh74tv8sp1gkht5tmssec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
