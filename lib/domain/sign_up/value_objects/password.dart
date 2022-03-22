@@ -4,6 +4,7 @@ import 'package:moviesto/domain/core/value_object/value_object.dart';
 import 'package:dartz/dartz.dart';
 
 class PasswordVO extends ValueObject<String> {
+  @override
   final Either<ValueFailure<String>, String> value;
 
   factory PasswordVO(String input) {

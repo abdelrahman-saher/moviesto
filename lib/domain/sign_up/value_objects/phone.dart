@@ -4,6 +4,7 @@ import 'package:moviesto/domain/core/value_object/value_object.dart';
 import 'package:dartz/dartz.dart';
 
 class PhoneVO extends ValueObject<String> {
+  @override
   final Either<ValueFailure<String>, String> value;
 
   factory PhoneVO(String input) {
@@ -12,15 +13,15 @@ class PhoneVO extends ValueObject<String> {
     if (ValueValidator.validatePhone(input)) {
       return PhoneVO._(right(input));
     } else {
-      return PhoneVO._(left(ValueFailure.invalidPhone(
-          failedValue: _getErrorMessage())));
+      return PhoneVO._(
+          left(ValueFailure.invalidPhone(failedValue: _getErrorMessage())));
     }
   }
 
   const PhoneVO._(this.value);
 
-  static String? _getErrorMessage(){
-    // to return error message in multiple language 
+  static String? _getErrorMessage() {
+    // to return error message in multiple language
     // so this fn will be used to get error value from i10n file
     return "Oops! Your Phone Number Is Not Correct";
   }
