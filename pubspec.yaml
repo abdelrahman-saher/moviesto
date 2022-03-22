@@ -13,6 +13,7 @@ dependencies:
   equatable: ^2.0.3
   firebase_core: ^1.13.1
   firebase_auth: ^3.3.11
+  cloud_firestore: ^3.1.10
   flutter_bloc: ^8.0.1
   flutter_screenutil: ^5.3.1
   flutter_facebook_auth: ^4.1.2
