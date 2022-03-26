@@ -3,6 +3,7 @@ import 'package:moviesto/domain/sign_up/entities/user.dart';
 
 class UserModel extends Equatable {
   final String? uid, firstName, secondName, phoneNumber, email, password;
+  static const String? USER_ID_BOX_KEY = 'uid';
   const UserModel(
     this.uid,
     this.firstName,

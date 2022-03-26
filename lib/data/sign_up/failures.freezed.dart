@@ -33,6 +33,10 @@ class _$SignupFailuresTearOff {
   CancelledByUser<T> cancelledByUser<T>() {
     return CancelledByUser<T>();
   }
+
+  LocalFailure<T> localFailure<T>() {
+    return LocalFailure<T>();
+  }
 }
 
 /// @nodoc
@@ -46,6 +50,7 @@ mixin _$SignupFailures<T> {
     required TResult Function() connectionFailure,
     required TResult Function() userExists,
     required TResult Function() cancelledByUser,
+    required TResult Function() localFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +59,7 @@ mixin _$SignupFailures<T> {
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +68,7 @@ mixin _$SignupFailures<T> {
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,6 +78,7 @@ mixin _$SignupFailures<T> {
     required TResult Function(ConnectionFailure<T> value) connectionFailure,
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(LocalFailure<T> value) localFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,6 +87,7 @@ mixin _$SignupFailures<T> {
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +96,7 @@ mixin _$SignupFailures<T> {
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +164,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     required TResult Function() connectionFailure,
     required TResult Function() userExists,
     required TResult Function() cancelledByUser,
+    required TResult Function() localFailure,
   }) {
     return serverFailure();
   }
@@ -165,6 +176,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
   }) {
     return serverFailure?.call();
   }
@@ -176,6 +188,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -191,6 +204,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     required TResult Function(ConnectionFailure<T> value) connectionFailure,
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(LocalFailure<T> value) localFailure,
   }) {
     return serverFailure(this);
   }
@@ -202,6 +216,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
   }) {
     return serverFailure?.call(this);
   }
@@ -213,6 +228,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -271,6 +287,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     required TResult Function() connectionFailure,
     required TResult Function() userExists,
     required TResult Function() cancelledByUser,
+    required TResult Function() localFailure,
   }) {
     return connectionFailure();
   }
@@ -282,6 +299,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
   }) {
     return connectionFailure?.call();
   }
@@ -293,6 +311,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
     required TResult orElse(),
   }) {
     if (connectionFailure != null) {
@@ -308,6 +327,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     required TResult Function(ConnectionFailure<T> value) connectionFailure,
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(LocalFailure<T> value) localFailure,
   }) {
     return connectionFailure(this);
   }
@@ -319,6 +339,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
   }) {
     return connectionFailure?.call(this);
   }
@@ -330,6 +351,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
     required TResult orElse(),
   }) {
     if (connectionFailure != null) {
@@ -388,6 +410,7 @@ class _$UserExists<T> implements UserExists<T> {
     required TResult Function() connectionFailure,
     required TResult Function() userExists,
     required TResult Function() cancelledByUser,
+    required TResult Function() localFailure,
   }) {
     return userExists();
   }
@@ -399,6 +422,7 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
   }) {
     return userExists?.call();
   }
@@ -410,6 +434,7 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
     required TResult orElse(),
   }) {
     if (userExists != null) {
@@ -425,6 +450,7 @@ class _$UserExists<T> implements UserExists<T> {
     required TResult Function(ConnectionFailure<T> value) connectionFailure,
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(LocalFailure<T> value) localFailure,
   }) {
     return userExists(this);
   }
@@ -436,6 +462,7 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
   }) {
     return userExists?.call(this);
   }
@@ -447,6 +474,7 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
     required TResult orElse(),
   }) {
     if (userExists != null) {
@@ -505,6 +533,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     required TResult Function() connectionFailure,
     required TResult Function() userExists,
     required TResult Function() cancelledByUser,
+    required TResult Function() localFailure,
   }) {
     return cancelledByUser();
   }
@@ -516,6 +545,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
   }) {
     return cancelledByUser?.call();
   }
@@ -527,6 +557,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -542,6 +573,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     required TResult Function(ConnectionFailure<T> value) connectionFailure,
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(LocalFailure<T> value) localFailure,
   }) {
     return cancelledByUser(this);
   }
@@ -553,6 +585,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -564,6 +597,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -575,4 +609,127 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
 
 abstract class CancelledByUser<T> implements SignupFailures<T> {
   const factory CancelledByUser() = _$CancelledByUser<T>;
+}
+
+/// @nodoc
+abstract class $LocalFailureCopyWith<T, $Res> {
+  factory $LocalFailureCopyWith(
+          LocalFailure<T> value, $Res Function(LocalFailure<T>) then) =
+      _$LocalFailureCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class _$LocalFailureCopyWithImpl<T, $Res>
+    extends _$SignupFailuresCopyWithImpl<T, $Res>
+    implements $LocalFailureCopyWith<T, $Res> {
+  _$LocalFailureCopyWithImpl(
+      LocalFailure<T> _value, $Res Function(LocalFailure<T>) _then)
+      : super(_value, (v) => _then(v as LocalFailure<T>));
+
+  @override
+  LocalFailure<T> get _value => super._value as LocalFailure<T>;
+}
+
+/// @nodoc
+
+class _$LocalFailure<T> implements LocalFailure<T> {
+  const _$LocalFailure();
+
+  @override
+  String toString() {
+    return 'SignupFailures<$T>.localFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LocalFailure<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverFailure,
+    required TResult Function() connectionFailure,
+    required TResult Function() userExists,
+    required TResult Function() cancelledByUser,
+    required TResult Function() localFailure,
+  }) {
+    return localFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverFailure,
+    TResult Function()? connectionFailure,
+    TResult Function()? userExists,
+    TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
+  }) {
+    return localFailure?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverFailure,
+    TResult Function()? connectionFailure,
+    TResult Function()? userExists,
+    TResult Function()? cancelledByUser,
+    TResult Function()? localFailure,
+    required TResult orElse(),
+  }) {
+    if (localFailure != null) {
+      return localFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure<T> value) serverFailure,
+    required TResult Function(ConnectionFailure<T> value) connectionFailure,
+    required TResult Function(UserExists<T> value) userExists,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(LocalFailure<T> value) localFailure,
+  }) {
+    return localFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
+    TResult Function(ConnectionFailure<T> value)? connectionFailure,
+    TResult Function(UserExists<T> value)? userExists,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
+  }) {
+    return localFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
+    TResult Function(ConnectionFailure<T> value)? connectionFailure,
+    TResult Function(UserExists<T> value)? userExists,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
+    required TResult orElse(),
+  }) {
+    if (localFailure != null) {
+      return localFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LocalFailure<T> implements SignupFailures<T> {
+  const factory LocalFailure() = _$LocalFailure<T>;
 }

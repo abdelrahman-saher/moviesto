@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
+import 'package:moviesto/data/sign_up/data/remote/signup_remote_data_source.dart';
 import 'package:moviesto/data/sign_up/models/user_model.dart';
 import 'package:moviesto/domain/sign_up/entities/user.dart';
 import 'package:moviesto/domain/sign_up/entities/social_credential.dart';
@@ -10,7 +11,8 @@ import 'package:moviesto/domain/sign_up/repositories/signup_repository.dart';
 @Injectable(as: SignupRepository)
 class SignupRepositoryImpl implements SignupRepository {
   final FirebaseAuth firebaseAuth;
-  SignupRepositoryImpl(this.firebaseAuth);
+  final SignupRemoteDataSource signupRemoteDataSource;
+  SignupRepositoryImpl(this.firebaseAuth, this.signupRemoteDataSource);
   @override
   Future<Either<SignupFailures, Unit>> createUserWithEmailAndPassword(
       {UserEnitity? user}) async {
