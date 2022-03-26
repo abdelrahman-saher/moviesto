@@ -16,20 +16,7 @@ class SignupRemoteDataSourceImpl implements SignupRemoteDataSource {
       await users.doc(user.uid).set(user.toJson());
       return user.uid;
     } catch (e) {
-      throw const SignupFailures.serverFailure();
-    }
-  }
-
-  @override
-  Future<bool?> userExists(UserModel user) async {
-    try {
-      final DocumentSnapshot userDoc = await _firebaseFirestore
-          .collection(DBContract.USERSCOLLECTION)
-          .doc(user.uid)
-          .get();
-      return userDoc.exists;
-    } catch (e) {
-      throw const SignupFailures.serverFailure();
+      throw const SignupFailures.serverFailure("Something went wrong");
     }
   }
 }

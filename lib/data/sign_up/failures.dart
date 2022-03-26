@@ -4,9 +4,9 @@ part 'failures.freezed.dart';
 
 @freezed
 abstract class SignupFailures<T> with _$SignupFailures<T> {
-  const factory SignupFailures.serverFailure() = ServerFailure<T>;
-  const factory SignupFailures.connectionFailure() = ConnectionFailure<T>;
-  const factory SignupFailures.userExists() = UserExists<T>;
-  const factory SignupFailures.cancelledByUser() = CancelledByUser<T>;
-  const factory SignupFailures.localFailure() = LocalFailure<T>;
+  const factory SignupFailures.serverFailure(String? message) = ServerFailure<T>;
+  const factory SignupFailures.connectionFailure(String? message) = ConnectionFailure<T>;
+  const factory SignupFailures.userExists(String? message) = UserExists<T>;
+  const factory SignupFailures.cancelledByUser(String? message) = CancelledByUser<T>;
+  const factory SignupFailures.localFailure(String? message) = LocalFailure<T>;
 }

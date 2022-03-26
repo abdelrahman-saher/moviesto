@@ -18,24 +18,34 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SignupFailuresTearOff {
   const _$SignupFailuresTearOff();
 
-  ServerFailure<T> serverFailure<T>() {
-    return ServerFailure<T>();
+  ServerFailure<T> serverFailure<T>(String? message) {
+    return ServerFailure<T>(
+      message,
+    );
   }
 
-  ConnectionFailure<T> connectionFailure<T>() {
-    return ConnectionFailure<T>();
+  ConnectionFailure<T> connectionFailure<T>(String? message) {
+    return ConnectionFailure<T>(
+      message,
+    );
   }
 
-  UserExists<T> userExists<T>() {
-    return UserExists<T>();
+  UserExists<T> userExists<T>(String? message) {
+    return UserExists<T>(
+      message,
+    );
   }
 
-  CancelledByUser<T> cancelledByUser<T>() {
-    return CancelledByUser<T>();
+  CancelledByUser<T> cancelledByUser<T>(String? message) {
+    return CancelledByUser<T>(
+      message,
+    );
   }
 
-  LocalFailure<T> localFailure<T>() {
-    return LocalFailure<T>();
+  LocalFailure<T> localFailure<T>(String? message) {
+    return LocalFailure<T>(
+      message,
+    );
   }
 }
 
@@ -44,31 +54,33 @@ const $SignupFailures = _$SignupFailuresTearOff();
 
 /// @nodoc
 mixin _$SignupFailures<T> {
+  String? get message => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() serverFailure,
-    required TResult Function() connectionFailure,
-    required TResult Function() userExists,
-    required TResult Function() cancelledByUser,
-    required TResult Function() localFailure,
+    required TResult Function(String? message) serverFailure,
+    required TResult Function(String? message) connectionFailure,
+    required TResult Function(String? message) userExists,
+    required TResult Function(String? message) cancelledByUser,
+    required TResult Function(String? message) localFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -100,6 +112,10 @@ mixin _$SignupFailures<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SignupFailuresCopyWith<T, SignupFailures<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -107,6 +123,7 @@ abstract class $SignupFailuresCopyWith<T, $Res> {
   factory $SignupFailuresCopyWith(
           SignupFailures<T> value, $Res Function(SignupFailures<T>) then) =
       _$SignupFailuresCopyWithImpl<T, $Res>;
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -117,13 +134,28 @@ class _$SignupFailuresCopyWithImpl<T, $Res>
   final SignupFailures<T> _value;
   // ignore: unused_field
   final $Res Function(SignupFailures<T>) _then;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_value.copyWith(
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $ServerFailureCopyWith<T, $Res> {
+abstract class $ServerFailureCopyWith<T, $Res>
+    implements $SignupFailuresCopyWith<T, $Res> {
   factory $ServerFailureCopyWith(
           ServerFailure<T> value, $Res Function(ServerFailure<T>) then) =
       _$ServerFailureCopyWithImpl<T, $Res>;
+  @override
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -136,63 +168,86 @@ class _$ServerFailureCopyWithImpl<T, $Res>
 
   @override
   ServerFailure<T> get _value => super._value as ServerFailure<T>;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(ServerFailure<T>(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ServerFailure<T> implements ServerFailure<T> {
-  const _$ServerFailure();
+  const _$ServerFailure(this.message);
+
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'SignupFailures<$T>.serverFailure()';
+    return 'SignupFailures<$T>.serverFailure(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ServerFailure<T>);
+        (other.runtimeType == runtimeType &&
+            other is ServerFailure<T> &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  $ServerFailureCopyWith<T, ServerFailure<T>> get copyWith =>
+      _$ServerFailureCopyWithImpl<T, ServerFailure<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() serverFailure,
-    required TResult Function() connectionFailure,
-    required TResult Function() userExists,
-    required TResult Function() cancelledByUser,
-    required TResult Function() localFailure,
+    required TResult Function(String? message) serverFailure,
+    required TResult Function(String? message) connectionFailure,
+    required TResult Function(String? message) userExists,
+    required TResult Function(String? message) cancelledByUser,
+    required TResult Function(String? message) localFailure,
   }) {
-    return serverFailure();
+    return serverFailure(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
   }) {
-    return serverFailure?.call();
+    return serverFailure?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
-      return serverFailure();
+      return serverFailure(message);
     }
     return orElse();
   }
@@ -239,14 +294,24 @@ class _$ServerFailure<T> implements ServerFailure<T> {
 }
 
 abstract class ServerFailure<T> implements SignupFailures<T> {
-  const factory ServerFailure() = _$ServerFailure<T>;
+  const factory ServerFailure(String? message) = _$ServerFailure<T>;
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  $ServerFailureCopyWith<T, ServerFailure<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConnectionFailureCopyWith<T, $Res> {
+abstract class $ConnectionFailureCopyWith<T, $Res>
+    implements $SignupFailuresCopyWith<T, $Res> {
   factory $ConnectionFailureCopyWith(ConnectionFailure<T> value,
           $Res Function(ConnectionFailure<T>) then) =
       _$ConnectionFailureCopyWithImpl<T, $Res>;
+  @override
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -259,63 +324,87 @@ class _$ConnectionFailureCopyWithImpl<T, $Res>
 
   @override
   ConnectionFailure<T> get _value => super._value as ConnectionFailure<T>;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(ConnectionFailure<T>(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ConnectionFailure<T> implements ConnectionFailure<T> {
-  const _$ConnectionFailure();
+  const _$ConnectionFailure(this.message);
+
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'SignupFailures<$T>.connectionFailure()';
+    return 'SignupFailures<$T>.connectionFailure(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ConnectionFailure<T>);
+        (other.runtimeType == runtimeType &&
+            other is ConnectionFailure<T> &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  $ConnectionFailureCopyWith<T, ConnectionFailure<T>> get copyWith =>
+      _$ConnectionFailureCopyWithImpl<T, ConnectionFailure<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() serverFailure,
-    required TResult Function() connectionFailure,
-    required TResult Function() userExists,
-    required TResult Function() cancelledByUser,
-    required TResult Function() localFailure,
+    required TResult Function(String? message) serverFailure,
+    required TResult Function(String? message) connectionFailure,
+    required TResult Function(String? message) userExists,
+    required TResult Function(String? message) cancelledByUser,
+    required TResult Function(String? message) localFailure,
   }) {
-    return connectionFailure();
+    return connectionFailure(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
   }) {
-    return connectionFailure?.call();
+    return connectionFailure?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
     required TResult orElse(),
   }) {
     if (connectionFailure != null) {
-      return connectionFailure();
+      return connectionFailure(message);
     }
     return orElse();
   }
@@ -362,14 +451,24 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
 }
 
 abstract class ConnectionFailure<T> implements SignupFailures<T> {
-  const factory ConnectionFailure() = _$ConnectionFailure<T>;
+  const factory ConnectionFailure(String? message) = _$ConnectionFailure<T>;
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  $ConnectionFailureCopyWith<T, ConnectionFailure<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserExistsCopyWith<T, $Res> {
+abstract class $UserExistsCopyWith<T, $Res>
+    implements $SignupFailuresCopyWith<T, $Res> {
   factory $UserExistsCopyWith(
           UserExists<T> value, $Res Function(UserExists<T>) then) =
       _$UserExistsCopyWithImpl<T, $Res>;
+  @override
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -382,63 +481,86 @@ class _$UserExistsCopyWithImpl<T, $Res>
 
   @override
   UserExists<T> get _value => super._value as UserExists<T>;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(UserExists<T>(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$UserExists<T> implements UserExists<T> {
-  const _$UserExists();
+  const _$UserExists(this.message);
+
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'SignupFailures<$T>.userExists()';
+    return 'SignupFailures<$T>.userExists(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is UserExists<T>);
+        (other.runtimeType == runtimeType &&
+            other is UserExists<T> &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  $UserExistsCopyWith<T, UserExists<T>> get copyWith =>
+      _$UserExistsCopyWithImpl<T, UserExists<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() serverFailure,
-    required TResult Function() connectionFailure,
-    required TResult Function() userExists,
-    required TResult Function() cancelledByUser,
-    required TResult Function() localFailure,
+    required TResult Function(String? message) serverFailure,
+    required TResult Function(String? message) connectionFailure,
+    required TResult Function(String? message) userExists,
+    required TResult Function(String? message) cancelledByUser,
+    required TResult Function(String? message) localFailure,
   }) {
-    return userExists();
+    return userExists(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
   }) {
-    return userExists?.call();
+    return userExists?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
     required TResult orElse(),
   }) {
     if (userExists != null) {
-      return userExists();
+      return userExists(message);
     }
     return orElse();
   }
@@ -485,14 +607,24 @@ class _$UserExists<T> implements UserExists<T> {
 }
 
 abstract class UserExists<T> implements SignupFailures<T> {
-  const factory UserExists() = _$UserExists<T>;
+  const factory UserExists(String? message) = _$UserExists<T>;
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  $UserExistsCopyWith<T, UserExists<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CancelledByUserCopyWith<T, $Res> {
+abstract class $CancelledByUserCopyWith<T, $Res>
+    implements $SignupFailuresCopyWith<T, $Res> {
   factory $CancelledByUserCopyWith(
           CancelledByUser<T> value, $Res Function(CancelledByUser<T>) then) =
       _$CancelledByUserCopyWithImpl<T, $Res>;
+  @override
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -505,63 +637,86 @@ class _$CancelledByUserCopyWithImpl<T, $Res>
 
   @override
   CancelledByUser<T> get _value => super._value as CancelledByUser<T>;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(CancelledByUser<T>(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$CancelledByUser<T> implements CancelledByUser<T> {
-  const _$CancelledByUser();
+  const _$CancelledByUser(this.message);
+
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'SignupFailures<$T>.cancelledByUser()';
+    return 'SignupFailures<$T>.cancelledByUser(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is CancelledByUser<T>);
+        (other.runtimeType == runtimeType &&
+            other is CancelledByUser<T> &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  $CancelledByUserCopyWith<T, CancelledByUser<T>> get copyWith =>
+      _$CancelledByUserCopyWithImpl<T, CancelledByUser<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() serverFailure,
-    required TResult Function() connectionFailure,
-    required TResult Function() userExists,
-    required TResult Function() cancelledByUser,
-    required TResult Function() localFailure,
+    required TResult Function(String? message) serverFailure,
+    required TResult Function(String? message) connectionFailure,
+    required TResult Function(String? message) userExists,
+    required TResult Function(String? message) cancelledByUser,
+    required TResult Function(String? message) localFailure,
   }) {
-    return cancelledByUser();
+    return cancelledByUser(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
   }) {
-    return cancelledByUser?.call();
+    return cancelledByUser?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
-      return cancelledByUser();
+      return cancelledByUser(message);
     }
     return orElse();
   }
@@ -608,14 +763,24 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
 }
 
 abstract class CancelledByUser<T> implements SignupFailures<T> {
-  const factory CancelledByUser() = _$CancelledByUser<T>;
+  const factory CancelledByUser(String? message) = _$CancelledByUser<T>;
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  $CancelledByUserCopyWith<T, CancelledByUser<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LocalFailureCopyWith<T, $Res> {
+abstract class $LocalFailureCopyWith<T, $Res>
+    implements $SignupFailuresCopyWith<T, $Res> {
   factory $LocalFailureCopyWith(
           LocalFailure<T> value, $Res Function(LocalFailure<T>) then) =
       _$LocalFailureCopyWithImpl<T, $Res>;
+  @override
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -628,63 +793,86 @@ class _$LocalFailureCopyWithImpl<T, $Res>
 
   @override
   LocalFailure<T> get _value => super._value as LocalFailure<T>;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(LocalFailure<T>(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LocalFailure<T> implements LocalFailure<T> {
-  const _$LocalFailure();
+  const _$LocalFailure(this.message);
+
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'SignupFailures<$T>.localFailure()';
+    return 'SignupFailures<$T>.localFailure(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is LocalFailure<T>);
+        (other.runtimeType == runtimeType &&
+            other is LocalFailure<T> &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  $LocalFailureCopyWith<T, LocalFailure<T>> get copyWith =>
+      _$LocalFailureCopyWithImpl<T, LocalFailure<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() serverFailure,
-    required TResult Function() connectionFailure,
-    required TResult Function() userExists,
-    required TResult Function() cancelledByUser,
-    required TResult Function() localFailure,
+    required TResult Function(String? message) serverFailure,
+    required TResult Function(String? message) connectionFailure,
+    required TResult Function(String? message) userExists,
+    required TResult Function(String? message) cancelledByUser,
+    required TResult Function(String? message) localFailure,
   }) {
-    return localFailure();
+    return localFailure(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
   }) {
-    return localFailure?.call();
+    return localFailure?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? serverFailure,
-    TResult Function()? connectionFailure,
-    TResult Function()? userExists,
-    TResult Function()? cancelledByUser,
-    TResult Function()? localFailure,
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
     required TResult orElse(),
   }) {
     if (localFailure != null) {
-      return localFailure();
+      return localFailure(message);
     }
     return orElse();
   }
@@ -731,5 +919,12 @@ class _$LocalFailure<T> implements LocalFailure<T> {
 }
 
 abstract class LocalFailure<T> implements SignupFailures<T> {
-  const factory LocalFailure() = _$LocalFailure<T>;
+  const factory LocalFailure(String? message) = _$LocalFailure<T>;
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  $LocalFailureCopyWith<T, LocalFailure<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

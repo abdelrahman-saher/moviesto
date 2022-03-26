@@ -49,32 +49,5 @@ void main() {
             throwsA(isA<ServerFailure>()));
       });
     });
-    group("User exists test -", () {
-      test("if user exists should return true", () async {
-        when(mockCollectionReference.doc(userModel.uid))
-            .thenAnswer((_) => mockDocumentReference);
-        when(mockDocumentReference.get())
-            .thenAnswer((_) async => mockDocumentSnapshot);
-        when(mockDocumentSnapshot.exists).thenReturn(true);
-        final bool? result = await usecase.userExists(userModel);
-        expect(result, equals(true));
-      });
-      test("if user doesn't exist should return false", () async {
-        when(mockCollectionReference.doc(userModel.uid))
-            .thenAnswer((_) => mockDocumentReference);
-        when(mockDocumentReference.get())
-            .thenAnswer((_) async => mockDocumentSnapshot);
-        when(mockDocumentSnapshot.exists).thenReturn(false);
-        final bool? result = await usecase.userExists(userModel);
-        expect(result, equals(false));
-      });
-      test("if firestore throw error should throw server error", () async {
-        when(mockCollectionReference.doc(userModel.uid))
-            .thenAnswer((_) => mockDocumentReference);
-        when(mockDocumentReference.get()).thenThrow((_) => Exception());
-        expect(() async => await usecase.userExists(userModel),
-            throwsA(isA<ServerFailure>()));
-      });
-    });
   });
 }
