@@ -7,7 +7,7 @@ abstract class ValueObject<T> extends Equatable {
   const ValueObject();
   Either<ValueFailure<T>, T> get value;
 
-  String getNotNullValue() {
+  String? getNotNullValue() {
     return value.fold((l) => "", (r) => r.toString());
   }
   String? getFailureValue() {

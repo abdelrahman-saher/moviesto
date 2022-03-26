@@ -18,6 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SignupFailuresTearOff {
   const _$SignupFailuresTearOff();
 
+  ServerFailure<T> serverFailure<T>() {
+    return ServerFailure<T>();
+  }
+
   ConnectionFailure<T> connectionFailure<T>() {
     return ConnectionFailure<T>();
   }
@@ -38,6 +42,7 @@ const $SignupFailures = _$SignupFailuresTearOff();
 mixin _$SignupFailures<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() serverFailure,
     required TResult Function() connectionFailure,
     required TResult Function() userExists,
     required TResult Function() cancelledByUser,
@@ -45,6 +50,7 @@ mixin _$SignupFailures<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverFailure,
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
@@ -52,6 +58,7 @@ mixin _$SignupFailures<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverFailure,
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
@@ -60,6 +67,7 @@ mixin _$SignupFailures<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure<T> value) serverFailure,
     required TResult Function(ConnectionFailure<T> value) connectionFailure,
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
@@ -67,6 +75,7 @@ mixin _$SignupFailures<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
@@ -74,6 +83,7 @@ mixin _$SignupFailures<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
@@ -97,6 +107,123 @@ class _$SignupFailuresCopyWithImpl<T, $Res>
   final SignupFailures<T> _value;
   // ignore: unused_field
   final $Res Function(SignupFailures<T>) _then;
+}
+
+/// @nodoc
+abstract class $ServerFailureCopyWith<T, $Res> {
+  factory $ServerFailureCopyWith(
+          ServerFailure<T> value, $Res Function(ServerFailure<T>) then) =
+      _$ServerFailureCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class _$ServerFailureCopyWithImpl<T, $Res>
+    extends _$SignupFailuresCopyWithImpl<T, $Res>
+    implements $ServerFailureCopyWith<T, $Res> {
+  _$ServerFailureCopyWithImpl(
+      ServerFailure<T> _value, $Res Function(ServerFailure<T>) _then)
+      : super(_value, (v) => _then(v as ServerFailure<T>));
+
+  @override
+  ServerFailure<T> get _value => super._value as ServerFailure<T>;
+}
+
+/// @nodoc
+
+class _$ServerFailure<T> implements ServerFailure<T> {
+  const _$ServerFailure();
+
+  @override
+  String toString() {
+    return 'SignupFailures<$T>.serverFailure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ServerFailure<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverFailure,
+    required TResult Function() connectionFailure,
+    required TResult Function() userExists,
+    required TResult Function() cancelledByUser,
+  }) {
+    return serverFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverFailure,
+    TResult Function()? connectionFailure,
+    TResult Function()? userExists,
+    TResult Function()? cancelledByUser,
+  }) {
+    return serverFailure?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverFailure,
+    TResult Function()? connectionFailure,
+    TResult Function()? userExists,
+    TResult Function()? cancelledByUser,
+    required TResult orElse(),
+  }) {
+    if (serverFailure != null) {
+      return serverFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure<T> value) serverFailure,
+    required TResult Function(ConnectionFailure<T> value) connectionFailure,
+    required TResult Function(UserExists<T> value) userExists,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+  }) {
+    return serverFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
+    TResult Function(ConnectionFailure<T> value)? connectionFailure,
+    TResult Function(UserExists<T> value)? userExists,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+  }) {
+    return serverFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
+    TResult Function(ConnectionFailure<T> value)? connectionFailure,
+    TResult Function(UserExists<T> value)? userExists,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    required TResult orElse(),
+  }) {
+    if (serverFailure != null) {
+      return serverFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ServerFailure<T> implements SignupFailures<T> {
+  const factory ServerFailure() = _$ServerFailure<T>;
 }
 
 /// @nodoc
@@ -140,6 +267,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() serverFailure,
     required TResult Function() connectionFailure,
     required TResult Function() userExists,
     required TResult Function() cancelledByUser,
@@ -150,6 +278,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverFailure,
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
@@ -160,6 +289,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverFailure,
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
@@ -174,6 +304,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure<T> value) serverFailure,
     required TResult Function(ConnectionFailure<T> value) connectionFailure,
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
@@ -184,6 +315,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
@@ -194,6 +326,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
@@ -251,6 +384,7 @@ class _$UserExists<T> implements UserExists<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() serverFailure,
     required TResult Function() connectionFailure,
     required TResult Function() userExists,
     required TResult Function() cancelledByUser,
@@ -261,6 +395,7 @@ class _$UserExists<T> implements UserExists<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverFailure,
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
@@ -271,6 +406,7 @@ class _$UserExists<T> implements UserExists<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverFailure,
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
@@ -285,6 +421,7 @@ class _$UserExists<T> implements UserExists<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure<T> value) serverFailure,
     required TResult Function(ConnectionFailure<T> value) connectionFailure,
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
@@ -295,6 +432,7 @@ class _$UserExists<T> implements UserExists<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
@@ -305,6 +443,7 @@ class _$UserExists<T> implements UserExists<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
@@ -362,6 +501,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() serverFailure,
     required TResult Function() connectionFailure,
     required TResult Function() userExists,
     required TResult Function() cancelledByUser,
@@ -372,6 +512,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverFailure,
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
@@ -382,6 +523,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverFailure,
     TResult Function()? connectionFailure,
     TResult Function()? userExists,
     TResult Function()? cancelledByUser,
@@ -396,6 +538,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure<T> value) serverFailure,
     required TResult Function(ConnectionFailure<T> value) connectionFailure,
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
@@ -406,6 +549,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
@@ -416,6 +560,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
     TResult Function(ConnectionFailure<T> value)? connectionFailure,
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
