@@ -2,14 +2,20 @@
 // in moviesto/test/data/sign_up/repositories/signup_repository_impl_test.dart.
 // Do not manually edit this file.
 
-import 'dart:async' as _i3;
+import 'dart:async' as _i5;
 
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart' as _i8;
+import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart'
+    as _i2;
+import 'package:google_sign_in/google_sign_in.dart' as _i3;
+import 'package:google_sign_in_platform_interface/google_sign_in_platform_interface.dart'
+    as _i9;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:moviesto/data/sign_up/data/local/signup_local_data_source.dart'
-    as _i5;
+    as _i7;
 import 'package:moviesto/data/sign_up/data/remote/signup_remote_data_source.dart'
-    as _i2;
-import 'package:moviesto/data/sign_up/models/user_model.dart' as _i4;
+    as _i4;
+import 'package:moviesto/data/sign_up/models/user_model.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -21,33 +27,262 @@ import 'package:moviesto/data/sign_up/models/user_model.dart' as _i4;
 // ignore_for_file: unnecessary_parenthesis
 // ignore_for_file: camel_case_types
 
+class _FakeLoginResult_0 extends _i1.Fake implements _i2.LoginResult {}
+
+class _FakeDateTime_1 extends _i1.Fake implements DateTime {}
+
+class _FakeGoogleSignInAuthentication_2 extends _i1.Fake
+    implements _i3.GoogleSignInAuthentication {}
+
 /// A class which mocks [SignupRemoteDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSignupRemoteDataSource extends _i1.Mock
-    implements _i2.SignupRemoteDataSource {
+    implements _i4.SignupRemoteDataSource {
   MockSignupRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<String?> addNewUser(_i4.UserModel? user) =>
+  _i5.Future<String?> addNewUser(_i6.UserModel? user) =>
       (super.noSuchMethod(Invocation.method(#addNewUser, [user]),
-          returnValue: Future<String?>.value()) as _i3.Future<String?>);
+          returnValue: Future<String?>.value()) as _i5.Future<String?>);
 }
 
 /// A class which mocks [SignupLocalDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSignupLocalDataSource extends _i1.Mock
-    implements _i5.SignupLocalDataSource {
+    implements _i7.SignupLocalDataSource {
   MockSignupLocalDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<void> cacheUser(_i4.UserModel? user) =>
+  _i5.Future<void> cacheUser(_i6.UserModel? user) =>
       (super.noSuchMethod(Invocation.method(#cacheUser, [user]),
           returnValue: Future<void>.value(),
-          returnValueForMissingStub: Future<void>.value()) as _i3.Future<void>);
+          returnValueForMissingStub: Future<void>.value()) as _i5.Future<void>);
+}
+
+/// A class which mocks [FacebookAuth].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockFacebookAuth extends _i1.Mock implements _i8.FacebookAuth {
+  MockFacebookAuth() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i5.Future<_i2.AccessToken?> get accessToken =>
+      (super.noSuchMethod(Invocation.getter(#accessToken),
+              returnValue: Future<_i2.AccessToken?>.value())
+          as _i5.Future<_i2.AccessToken?>);
+  @override
+  _i5.Future<_i2.FacebookPermissions?> get permissions =>
+      (super.noSuchMethod(Invocation.getter(#permissions),
+              returnValue: Future<_i2.FacebookPermissions?>.value())
+          as _i5.Future<_i2.FacebookPermissions?>);
+  @override
+  bool get isWebSdkInitialized =>
+      (super.noSuchMethod(Invocation.getter(#isWebSdkInitialized),
+          returnValue: false) as bool);
+  @override
+  _i5.Future<bool> get isAutoLogAppEventsEnabled =>
+      (super.noSuchMethod(Invocation.getter(#isAutoLogAppEventsEnabled),
+          returnValue: Future<bool>.value(false)) as _i5.Future<bool>);
+  @override
+  _i5.Future<_i2.LoginResult> expressLogin() =>
+      (super.noSuchMethod(Invocation.method(#expressLogin, []),
+              returnValue: Future<_i2.LoginResult>.value(_FakeLoginResult_0()))
+          as _i5.Future<_i2.LoginResult>);
+  @override
+  _i5.Future<Map<String, dynamic>> getUserData(
+          {String? fields = r'name,email,picture.width(200)'}) =>
+      (super.noSuchMethod(
+              Invocation.method(#getUserData, [], {#fields: fields}),
+              returnValue:
+                  Future<Map<String, dynamic>>.value(<String, dynamic>{}))
+          as _i5.Future<Map<String, dynamic>>);
+  @override
+  _i5.Future<void> logOut() =>
+      (super.noSuchMethod(Invocation.method(#logOut, []),
+          returnValue: Future<void>.value(),
+          returnValueForMissingStub: Future<void>.value()) as _i5.Future<void>);
+  @override
+  _i5.Future<_i2.LoginResult> login(
+          {List<String>? permissions = const [r'email', r'public_profile'],
+          _i2.LoginBehavior? loginBehavior = _i2.LoginBehavior.dialogOnly}) =>
+      (super.noSuchMethod(
+              Invocation.method(#login, [],
+                  {#permissions: permissions, #loginBehavior: loginBehavior}),
+              returnValue: Future<_i2.LoginResult>.value(_FakeLoginResult_0()))
+          as _i5.Future<_i2.LoginResult>);
+  @override
+  void webInitialize(
+          {String? appId, bool? cookie, bool? xfbml, String? version}) =>
+      super.noSuchMethod(
+          Invocation.method(#webInitialize, [], {
+            #appId: appId,
+            #cookie: cookie,
+            #xfbml: xfbml,
+            #version: version
+          }),
+          returnValueForMissingStub: null);
+  @override
+  _i5.Future<void> autoLogAppEventsEnabled(bool? enabled) => (super
+      .noSuchMethod(Invocation.method(#autoLogAppEventsEnabled, [enabled]),
+          returnValue: Future<void>.value(),
+          returnValueForMissingStub: Future<void>.value()) as _i5.Future<void>);
+}
+
+/// A class which mocks [LoginResult].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockLoginResult extends _i1.Mock implements _i2.LoginResult {
+  MockLoginResult() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i2.LoginStatus get status => (super.noSuchMethod(Invocation.getter(#status),
+      returnValue: _i2.LoginStatus.success) as _i2.LoginStatus);
+}
+
+/// A class which mocks [AccessToken].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAccessToken extends _i1.Mock implements _i2.AccessToken {
+  MockAccessToken() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  DateTime get expires => (super.noSuchMethod(Invocation.getter(#expires),
+      returnValue: _FakeDateTime_1()) as DateTime);
+  @override
+  DateTime get lastRefresh =>
+      (super.noSuchMethod(Invocation.getter(#lastRefresh),
+          returnValue: _FakeDateTime_1()) as DateTime);
+  @override
+  String get userId =>
+      (super.noSuchMethod(Invocation.getter(#userId), returnValue: '')
+          as String);
+  @override
+  String get token =>
+      (super.noSuchMethod(Invocation.getter(#token), returnValue: '')
+          as String);
+  @override
+  String get applicationId =>
+      (super.noSuchMethod(Invocation.getter(#applicationId), returnValue: '')
+          as String);
+  @override
+  bool get isExpired =>
+      (super.noSuchMethod(Invocation.getter(#isExpired), returnValue: false)
+          as bool);
+  @override
+  Map<String, dynamic> toJson() =>
+      (super.noSuchMethod(Invocation.method(#toJson, []),
+          returnValue: <String, dynamic>{}) as Map<String, dynamic>);
+}
+
+/// A class which mocks [GoogleSignIn].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGoogleSignIn extends _i1.Mock implements _i3.GoogleSignIn {
+  MockGoogleSignIn() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i9.SignInOption get signInOption =>
+      (super.noSuchMethod(Invocation.getter(#signInOption),
+          returnValue: _i9.SignInOption.standard) as _i9.SignInOption);
+  @override
+  List<String> get scopes =>
+      (super.noSuchMethod(Invocation.getter(#scopes), returnValue: <String>[])
+          as List<String>);
+  @override
+  _i5.Stream<_i3.GoogleSignInAccount?> get onCurrentUserChanged =>
+      (super.noSuchMethod(Invocation.getter(#onCurrentUserChanged),
+              returnValue: Stream<_i3.GoogleSignInAccount?>.empty())
+          as _i5.Stream<_i3.GoogleSignInAccount?>);
+  @override
+  _i5.Future<_i3.GoogleSignInAccount?> signInSilently(
+          {bool? suppressErrors = true, bool? reAuthenticate = false}) =>
+      (super.noSuchMethod(
+              Invocation.method(#signInSilently, [], {
+                #suppressErrors: suppressErrors,
+                #reAuthenticate: reAuthenticate
+              }),
+              returnValue: Future<_i3.GoogleSignInAccount?>.value())
+          as _i5.Future<_i3.GoogleSignInAccount?>);
+  @override
+  _i5.Future<bool> isSignedIn() =>
+      (super.noSuchMethod(Invocation.method(#isSignedIn, []),
+          returnValue: Future<bool>.value(false)) as _i5.Future<bool>);
+  @override
+  _i5.Future<_i3.GoogleSignInAccount?> signIn() =>
+      (super.noSuchMethod(Invocation.method(#signIn, []),
+              returnValue: Future<_i3.GoogleSignInAccount?>.value())
+          as _i5.Future<_i3.GoogleSignInAccount?>);
+  @override
+  _i5.Future<_i3.GoogleSignInAccount?> signOut() =>
+      (super.noSuchMethod(Invocation.method(#signOut, []),
+              returnValue: Future<_i3.GoogleSignInAccount?>.value())
+          as _i5.Future<_i3.GoogleSignInAccount?>);
+  @override
+  _i5.Future<_i3.GoogleSignInAccount?> disconnect() =>
+      (super.noSuchMethod(Invocation.method(#disconnect, []),
+              returnValue: Future<_i3.GoogleSignInAccount?>.value())
+          as _i5.Future<_i3.GoogleSignInAccount?>);
+  @override
+  _i5.Future<bool> requestScopes(List<String>? scopes) =>
+      (super.noSuchMethod(Invocation.method(#requestScopes, [scopes]),
+          returnValue: Future<bool>.value(false)) as _i5.Future<bool>);
+}
+
+/// A class which mocks [GoogleSignInAuthentication].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGoogleSignInAuthentication extends _i1.Mock
+    implements _i3.GoogleSignInAuthentication {
+  MockGoogleSignInAuthentication() {
+    _i1.throwOnMissingStub(this);
+  }
+}
+
+/// A class which mocks [GoogleSignInAccount].
+///
+/// See the documentation for Mockito's code generation for more information.
+// ignore: must_be_immutable
+class MockGoogleSignInAccount extends _i1.Mock
+    implements _i3.GoogleSignInAccount {
+  MockGoogleSignInAccount() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  String get email =>
+      (super.noSuchMethod(Invocation.getter(#email), returnValue: '')
+          as String);
+  @override
+  String get id =>
+      (super.noSuchMethod(Invocation.getter(#id), returnValue: '') as String);
+  @override
+  _i5.Future<_i3.GoogleSignInAuthentication> get authentication =>
+      (super.noSuchMethod(Invocation.getter(#authentication),
+              returnValue: Future<_i3.GoogleSignInAuthentication>.value(
+                  _FakeGoogleSignInAuthentication_2()))
+          as _i5.Future<_i3.GoogleSignInAuthentication>);
+  @override
+  _i5.Future<Map<String, String>> get authHeaders => (super.noSuchMethod(
+          Invocation.getter(#authHeaders),
+          returnValue: Future<Map<String, String>>.value(<String, String>{}))
+      as _i5.Future<Map<String, String>>);
+  @override
+  _i5.Future<void> clearAuthCache() =>
+      (super.noSuchMethod(Invocation.method(#clearAuthCache, []),
+          returnValue: Future<void>.value(),
+          returnValueForMissingStub: Future<void>.value()) as _i5.Future<void>);
 }

@@ -40,7 +40,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       get<_i4.FirebaseAuth>(),
       get<_i10.SignupRemoteDataSource>(),
       get<_i8.SignupLocalDataSource>(),
-      get<_i7.GoogleSignIn>()));
+      get<_i7.GoogleSignIn>(),
+      get<_i3.FacebookAuth>()));
   return get;
 }
 

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:moviesto/data/constants/failure_messages.dart';
@@ -17,8 +18,9 @@ class SignupRepositoryImpl implements SignupRepository {
   final SignupRemoteDataSource _signupRemoteDataSource;
   final SignupLocalDataSource _signupLocalDataSource;
   final GoogleSignIn _googleSignIn;
+  final FacebookAuth _facebookAuth;
   SignupRepositoryImpl(this._firebaseAuth, this._signupRemoteDataSource,
-      this._signupLocalDataSource, this._googleSignIn);
+      this._signupLocalDataSource, this._googleSignIn, this._facebookAuth);
   @override
   Future<Either<SignupFailures, Unit>> createUserWithEmailAndPassword(
       {UserEnitity? user}) async {
@@ -34,9 +36,29 @@ class SignupRepositoryImpl implements SignupRepository {
   }
 
   @override
-  Future<Either<SignupFailures, SocialCredential>> signupWithFacebook() {
-    // TODO: implement signupWithFacebook
-    throw UnimplementedError();
+  Future<Either<SignupFailures, SocialCredential>> signupWithFacebook() async {
+    try {
+      final facebookUser = await _facebookAuth.login();
+      if (facebookUser.status == LoginStatus.cancelled) {
+        return left(const SignupFailures.cancelledByUser(
+            FailureMessage.CANCELLED_BY_USER));
+      } else if (facebookUser.status == LoginStatus.failed) {
+        return const Left(
+            SignupFailures.serverFailure(FailureMessage.UNKNOWN_ERROR));
+      }
+      final OAuthCredential facebookAuthCredential =
+          FacebookAuthProvider.credential(facebookUser.accessToken!.token);
+      final userData = await _facebookAuth.getUserData();
+      final String? email = userData['email'];
+      if (email == null || email.isEmpty) {
+        return const Left(
+            SignupFailures.invalidAccount(FailureMessage.INVALID_CREDENTIALS));
+      }
+      return Right(SocialCredential(facebookAuthCredential, email: email));
+    } catch (e) {
+      return const Left(
+          SignupFailures.serverFailure(FailureMessage.UNKNOWN_ERROR));
+    }
   }
 
   @override
@@ -53,7 +75,7 @@ class SignupRepositoryImpl implements SignupRepository {
         accessToken: googleAuth?.accessToken,
         idToken: googleAuth?.idToken,
       );
-      return Right(SocialCredential(credential));
+      return Right(SocialCredential(credential, email: googleUser.email));
     } catch (e) {
       return const Left(
           SignupFailures.serverFailure(FailureMessage.UNKNOWN_ERROR));

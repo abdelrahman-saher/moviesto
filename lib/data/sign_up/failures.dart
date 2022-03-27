@@ -9,4 +9,5 @@ abstract class SignupFailures<T> with _$SignupFailures<T> {
   const factory SignupFailures.userExists(String? message) = UserExists<T>;
   const factory SignupFailures.cancelledByUser(String? message) = CancelledByUser<T>;
   const factory SignupFailures.localFailure(String? message) = LocalFailure<T>;
+  const factory SignupFailures.invalidAccount(String? message) = InvalidAccount<T>;
 }

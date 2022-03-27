@@ -47,6 +47,12 @@ class _$SignupFailuresTearOff {
       message,
     );
   }
+
+  InvalidAccount<T> invalidAccount<T>(String? message) {
+    return InvalidAccount<T>(
+      message,
+    );
+  }
 }
 
 /// @nodoc
@@ -63,6 +69,7 @@ mixin _$SignupFailures<T> {
     required TResult Function(String? message) userExists,
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
+    required TResult Function(String? message) invalidAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +79,7 @@ mixin _$SignupFailures<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +89,7 @@ mixin _$SignupFailures<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,6 +100,7 @@ mixin _$SignupFailures<T> {
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
+    required TResult Function(InvalidAccount<T> value) invalidAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -100,6 +110,7 @@ mixin _$SignupFailures<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -109,6 +120,7 @@ mixin _$SignupFailures<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -220,6 +232,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     required TResult Function(String? message) userExists,
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
+    required TResult Function(String? message) invalidAccount,
   }) {
     return serverFailure(message);
   }
@@ -232,6 +245,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
   }) {
     return serverFailure?.call(message);
   }
@@ -244,6 +258,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -260,6 +275,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
+    required TResult Function(InvalidAccount<T> value) invalidAccount,
   }) {
     return serverFailure(this);
   }
@@ -272,6 +288,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
   }) {
     return serverFailure?.call(this);
   }
@@ -284,6 +301,7 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -377,6 +395,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     required TResult Function(String? message) userExists,
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
+    required TResult Function(String? message) invalidAccount,
   }) {
     return connectionFailure(message);
   }
@@ -389,6 +408,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
   }) {
     return connectionFailure?.call(message);
   }
@@ -401,6 +421,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
     required TResult orElse(),
   }) {
     if (connectionFailure != null) {
@@ -417,6 +438,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
+    required TResult Function(InvalidAccount<T> value) invalidAccount,
   }) {
     return connectionFailure(this);
   }
@@ -429,6 +451,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
   }) {
     return connectionFailure?.call(this);
   }
@@ -441,6 +464,7 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
     required TResult orElse(),
   }) {
     if (connectionFailure != null) {
@@ -533,6 +557,7 @@ class _$UserExists<T> implements UserExists<T> {
     required TResult Function(String? message) userExists,
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
+    required TResult Function(String? message) invalidAccount,
   }) {
     return userExists(message);
   }
@@ -545,6 +570,7 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
   }) {
     return userExists?.call(message);
   }
@@ -557,6 +583,7 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
     required TResult orElse(),
   }) {
     if (userExists != null) {
@@ -573,6 +600,7 @@ class _$UserExists<T> implements UserExists<T> {
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
+    required TResult Function(InvalidAccount<T> value) invalidAccount,
   }) {
     return userExists(this);
   }
@@ -585,6 +613,7 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
   }) {
     return userExists?.call(this);
   }
@@ -597,6 +626,7 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
     required TResult orElse(),
   }) {
     if (userExists != null) {
@@ -689,6 +719,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     required TResult Function(String? message) userExists,
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
+    required TResult Function(String? message) invalidAccount,
   }) {
     return cancelledByUser(message);
   }
@@ -701,6 +732,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
   }) {
     return cancelledByUser?.call(message);
   }
@@ -713,6 +745,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -729,6 +762,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
+    required TResult Function(InvalidAccount<T> value) invalidAccount,
   }) {
     return cancelledByUser(this);
   }
@@ -741,6 +775,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -753,6 +788,7 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -845,6 +881,7 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     required TResult Function(String? message) userExists,
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
+    required TResult Function(String? message) invalidAccount,
   }) {
     return localFailure(message);
   }
@@ -857,6 +894,7 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
   }) {
     return localFailure?.call(message);
   }
@@ -869,6 +907,7 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     TResult Function(String? message)? userExists,
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
     required TResult orElse(),
   }) {
     if (localFailure != null) {
@@ -885,6 +924,7 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     required TResult Function(UserExists<T> value) userExists,
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
+    required TResult Function(InvalidAccount<T> value) invalidAccount,
   }) {
     return localFailure(this);
   }
@@ -897,6 +937,7 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
   }) {
     return localFailure?.call(this);
   }
@@ -909,6 +950,7 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     TResult Function(UserExists<T> value)? userExists,
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
     required TResult orElse(),
   }) {
     if (localFailure != null) {
@@ -926,5 +968,167 @@ abstract class LocalFailure<T> implements SignupFailures<T> {
   @override
   @JsonKey(ignore: true)
   $LocalFailureCopyWith<T, LocalFailure<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InvalidAccountCopyWith<T, $Res>
+    implements $SignupFailuresCopyWith<T, $Res> {
+  factory $InvalidAccountCopyWith(
+          InvalidAccount<T> value, $Res Function(InvalidAccount<T>) then) =
+      _$InvalidAccountCopyWithImpl<T, $Res>;
+  @override
+  $Res call({String? message});
+}
+
+/// @nodoc
+class _$InvalidAccountCopyWithImpl<T, $Res>
+    extends _$SignupFailuresCopyWithImpl<T, $Res>
+    implements $InvalidAccountCopyWith<T, $Res> {
+  _$InvalidAccountCopyWithImpl(
+      InvalidAccount<T> _value, $Res Function(InvalidAccount<T>) _then)
+      : super(_value, (v) => _then(v as InvalidAccount<T>));
+
+  @override
+  InvalidAccount<T> get _value => super._value as InvalidAccount<T>;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(InvalidAccount<T>(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidAccount<T> implements InvalidAccount<T> {
+  const _$InvalidAccount(this.message);
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'SignupFailures<$T>.invalidAccount(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is InvalidAccount<T> &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidAccountCopyWith<T, InvalidAccount<T>> get copyWith =>
+      _$InvalidAccountCopyWithImpl<T, InvalidAccount<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) serverFailure,
+    required TResult Function(String? message) connectionFailure,
+    required TResult Function(String? message) userExists,
+    required TResult Function(String? message) cancelledByUser,
+    required TResult Function(String? message) localFailure,
+    required TResult Function(String? message) invalidAccount,
+  }) {
+    return invalidAccount(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
+  }) {
+    return invalidAccount?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
+    required TResult orElse(),
+  }) {
+    if (invalidAccount != null) {
+      return invalidAccount(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure<T> value) serverFailure,
+    required TResult Function(ConnectionFailure<T> value) connectionFailure,
+    required TResult Function(UserExists<T> value) userExists,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(LocalFailure<T> value) localFailure,
+    required TResult Function(InvalidAccount<T> value) invalidAccount,
+  }) {
+    return invalidAccount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
+    TResult Function(ConnectionFailure<T> value)? connectionFailure,
+    TResult Function(UserExists<T> value)? userExists,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
+  }) {
+    return invalidAccount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
+    TResult Function(ConnectionFailure<T> value)? connectionFailure,
+    TResult Function(UserExists<T> value)? userExists,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
+    required TResult orElse(),
+  }) {
+    if (invalidAccount != null) {
+      return invalidAccount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidAccount<T> implements SignupFailures<T> {
+  const factory InvalidAccount(String? message) = _$InvalidAccount<T>;
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  $InvalidAccountCopyWith<T, InvalidAccount<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
