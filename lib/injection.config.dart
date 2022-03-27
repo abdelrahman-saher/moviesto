@@ -39,7 +39,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i12.SignupRepository>(() => _i13.SignupRepositoryImpl(
       get<_i4.FirebaseAuth>(),
       get<_i10.SignupRemoteDataSource>(),
-      get<_i8.SignupLocalDataSource>()));
+      get<_i8.SignupLocalDataSource>(),
+      get<_i7.GoogleSignIn>()));
   return get;
 }
 

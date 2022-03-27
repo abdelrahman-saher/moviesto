@@ -5,6 +5,8 @@ import 'package:moviesto/data/sign_up/data/remote/signup_remote_data_source.dart
 import 'package:moviesto/data/sign_up/failures.dart';
 import 'package:moviesto/data/sign_up/models/user_model.dart';
 
+import '../../../constants/failure_messages.dart';
+
 @Injectable(as: SignupRemoteDataSource)
 class SignupRemoteDataSourceImpl implements SignupRemoteDataSource {
   final FirebaseFirestore _firebaseFirestore;
@@ -16,7 +18,7 @@ class SignupRemoteDataSourceImpl implements SignupRemoteDataSource {
       await users.doc(user.uid).set(user.toJson());
       return user.uid;
     } catch (e) {
-      throw const SignupFailures.serverFailure("Something went wrong");
+      throw const SignupFailures.serverFailure(FailureMessage.UNKNOWN_ERROR);
     }
   }
 }

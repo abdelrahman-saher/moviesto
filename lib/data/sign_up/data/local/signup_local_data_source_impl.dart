@@ -1,5 +1,6 @@
 import 'package:get_storage/get_storage.dart';
 import 'package:injectable/injectable.dart';
+import 'package:moviesto/data/constants/failure_messages.dart';
 import 'package:moviesto/data/sign_up/data/local/signup_local_data_source.dart';
 import 'package:moviesto/data/sign_up/failures.dart';
 import 'package:moviesto/data/sign_up/models/user_model.dart';
@@ -13,7 +14,7 @@ class SignupLocalDataSourceImpl implements SignupLocalDataSource {
     try {
       await _box?.write(UserModel.USER_ID_BOX_KEY!, user.uid);
     } catch (e) {
-      throw const SignupFailures.localFailure("Something went wrong");
+      throw const SignupFailures.localFailure(FailureMessage.UNKNOWN_ERROR);
     }
   }
 }
