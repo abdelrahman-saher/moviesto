@@ -53,6 +53,18 @@ class _$SignupFailuresTearOff {
       message,
     );
   }
+
+  InvalidCredential<T> invalidCredential<T>(String? message) {
+    return InvalidCredential<T>(
+      message,
+    );
+  }
+
+  NotAllowed<T> notAllowed<T>(String? message) {
+    return NotAllowed<T>(
+      message,
+    );
+  }
 }
 
 /// @nodoc
@@ -70,6 +82,8 @@ mixin _$SignupFailures<T> {
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
     required TResult Function(String? message) invalidAccount,
+    required TResult Function(String? message) invalidCredential,
+    required TResult Function(String? message) notAllowed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +94,8 @@ mixin _$SignupFailures<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +106,8 @@ mixin _$SignupFailures<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -101,6 +119,8 @@ mixin _$SignupFailures<T> {
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
     required TResult Function(InvalidAccount<T> value) invalidAccount,
+    required TResult Function(InvalidCredential<T> value) invalidCredential,
+    required TResult Function(NotAllowed<T> value) notAllowed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,6 +131,8 @@ mixin _$SignupFailures<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -121,6 +143,8 @@ mixin _$SignupFailures<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -233,6 +257,8 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
     required TResult Function(String? message) invalidAccount,
+    required TResult Function(String? message) invalidCredential,
+    required TResult Function(String? message) notAllowed,
   }) {
     return serverFailure(message);
   }
@@ -246,6 +272,8 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
   }) {
     return serverFailure?.call(message);
   }
@@ -259,6 +287,8 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -276,6 +306,8 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
     required TResult Function(InvalidAccount<T> value) invalidAccount,
+    required TResult Function(InvalidCredential<T> value) invalidCredential,
+    required TResult Function(NotAllowed<T> value) notAllowed,
   }) {
     return serverFailure(this);
   }
@@ -289,6 +321,8 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
   }) {
     return serverFailure?.call(this);
   }
@@ -302,6 +336,8 @@ class _$ServerFailure<T> implements ServerFailure<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -396,6 +432,8 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
     required TResult Function(String? message) invalidAccount,
+    required TResult Function(String? message) invalidCredential,
+    required TResult Function(String? message) notAllowed,
   }) {
     return connectionFailure(message);
   }
@@ -409,6 +447,8 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
   }) {
     return connectionFailure?.call(message);
   }
@@ -422,6 +462,8 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
     required TResult orElse(),
   }) {
     if (connectionFailure != null) {
@@ -439,6 +481,8 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
     required TResult Function(InvalidAccount<T> value) invalidAccount,
+    required TResult Function(InvalidCredential<T> value) invalidCredential,
+    required TResult Function(NotAllowed<T> value) notAllowed,
   }) {
     return connectionFailure(this);
   }
@@ -452,6 +496,8 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
   }) {
     return connectionFailure?.call(this);
   }
@@ -465,6 +511,8 @@ class _$ConnectionFailure<T> implements ConnectionFailure<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
     required TResult orElse(),
   }) {
     if (connectionFailure != null) {
@@ -558,6 +606,8 @@ class _$UserExists<T> implements UserExists<T> {
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
     required TResult Function(String? message) invalidAccount,
+    required TResult Function(String? message) invalidCredential,
+    required TResult Function(String? message) notAllowed,
   }) {
     return userExists(message);
   }
@@ -571,6 +621,8 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
   }) {
     return userExists?.call(message);
   }
@@ -584,6 +636,8 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
     required TResult orElse(),
   }) {
     if (userExists != null) {
@@ -601,6 +655,8 @@ class _$UserExists<T> implements UserExists<T> {
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
     required TResult Function(InvalidAccount<T> value) invalidAccount,
+    required TResult Function(InvalidCredential<T> value) invalidCredential,
+    required TResult Function(NotAllowed<T> value) notAllowed,
   }) {
     return userExists(this);
   }
@@ -614,6 +670,8 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
   }) {
     return userExists?.call(this);
   }
@@ -627,6 +685,8 @@ class _$UserExists<T> implements UserExists<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
     required TResult orElse(),
   }) {
     if (userExists != null) {
@@ -720,6 +780,8 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
     required TResult Function(String? message) invalidAccount,
+    required TResult Function(String? message) invalidCredential,
+    required TResult Function(String? message) notAllowed,
   }) {
     return cancelledByUser(message);
   }
@@ -733,6 +795,8 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
   }) {
     return cancelledByUser?.call(message);
   }
@@ -746,6 +810,8 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -763,6 +829,8 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
     required TResult Function(InvalidAccount<T> value) invalidAccount,
+    required TResult Function(InvalidCredential<T> value) invalidCredential,
+    required TResult Function(NotAllowed<T> value) notAllowed,
   }) {
     return cancelledByUser(this);
   }
@@ -776,6 +844,8 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
   }) {
     return cancelledByUser?.call(this);
   }
@@ -789,6 +859,8 @@ class _$CancelledByUser<T> implements CancelledByUser<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -882,6 +954,8 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
     required TResult Function(String? message) invalidAccount,
+    required TResult Function(String? message) invalidCredential,
+    required TResult Function(String? message) notAllowed,
   }) {
     return localFailure(message);
   }
@@ -895,6 +969,8 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
   }) {
     return localFailure?.call(message);
   }
@@ -908,6 +984,8 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
     required TResult orElse(),
   }) {
     if (localFailure != null) {
@@ -925,6 +1003,8 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
     required TResult Function(InvalidAccount<T> value) invalidAccount,
+    required TResult Function(InvalidCredential<T> value) invalidCredential,
+    required TResult Function(NotAllowed<T> value) notAllowed,
   }) {
     return localFailure(this);
   }
@@ -938,6 +1018,8 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
   }) {
     return localFailure?.call(this);
   }
@@ -951,6 +1033,8 @@ class _$LocalFailure<T> implements LocalFailure<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
     required TResult orElse(),
   }) {
     if (localFailure != null) {
@@ -1044,6 +1128,8 @@ class _$InvalidAccount<T> implements InvalidAccount<T> {
     required TResult Function(String? message) cancelledByUser,
     required TResult Function(String? message) localFailure,
     required TResult Function(String? message) invalidAccount,
+    required TResult Function(String? message) invalidCredential,
+    required TResult Function(String? message) notAllowed,
   }) {
     return invalidAccount(message);
   }
@@ -1057,6 +1143,8 @@ class _$InvalidAccount<T> implements InvalidAccount<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
   }) {
     return invalidAccount?.call(message);
   }
@@ -1070,6 +1158,8 @@ class _$InvalidAccount<T> implements InvalidAccount<T> {
     TResult Function(String? message)? cancelledByUser,
     TResult Function(String? message)? localFailure,
     TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
     required TResult orElse(),
   }) {
     if (invalidAccount != null) {
@@ -1087,6 +1177,8 @@ class _$InvalidAccount<T> implements InvalidAccount<T> {
     required TResult Function(CancelledByUser<T> value) cancelledByUser,
     required TResult Function(LocalFailure<T> value) localFailure,
     required TResult Function(InvalidAccount<T> value) invalidAccount,
+    required TResult Function(InvalidCredential<T> value) invalidCredential,
+    required TResult Function(NotAllowed<T> value) notAllowed,
   }) {
     return invalidAccount(this);
   }
@@ -1100,6 +1192,8 @@ class _$InvalidAccount<T> implements InvalidAccount<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
   }) {
     return invalidAccount?.call(this);
   }
@@ -1113,6 +1207,8 @@ class _$InvalidAccount<T> implements InvalidAccount<T> {
     TResult Function(CancelledByUser<T> value)? cancelledByUser,
     TResult Function(LocalFailure<T> value)? localFailure,
     TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
     required TResult orElse(),
   }) {
     if (invalidAccount != null) {
@@ -1130,5 +1226,354 @@ abstract class InvalidAccount<T> implements SignupFailures<T> {
   @override
   @JsonKey(ignore: true)
   $InvalidAccountCopyWith<T, InvalidAccount<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $InvalidCredentialCopyWith<T, $Res>
+    implements $SignupFailuresCopyWith<T, $Res> {
+  factory $InvalidCredentialCopyWith(InvalidCredential<T> value,
+          $Res Function(InvalidCredential<T>) then) =
+      _$InvalidCredentialCopyWithImpl<T, $Res>;
+  @override
+  $Res call({String? message});
+}
+
+/// @nodoc
+class _$InvalidCredentialCopyWithImpl<T, $Res>
+    extends _$SignupFailuresCopyWithImpl<T, $Res>
+    implements $InvalidCredentialCopyWith<T, $Res> {
+  _$InvalidCredentialCopyWithImpl(
+      InvalidCredential<T> _value, $Res Function(InvalidCredential<T>) _then)
+      : super(_value, (v) => _then(v as InvalidCredential<T>));
+
+  @override
+  InvalidCredential<T> get _value => super._value as InvalidCredential<T>;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(InvalidCredential<T>(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidCredential<T> implements InvalidCredential<T> {
+  const _$InvalidCredential(this.message);
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'SignupFailures<$T>.invalidCredential(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is InvalidCredential<T> &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  $InvalidCredentialCopyWith<T, InvalidCredential<T>> get copyWith =>
+      _$InvalidCredentialCopyWithImpl<T, InvalidCredential<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) serverFailure,
+    required TResult Function(String? message) connectionFailure,
+    required TResult Function(String? message) userExists,
+    required TResult Function(String? message) cancelledByUser,
+    required TResult Function(String? message) localFailure,
+    required TResult Function(String? message) invalidAccount,
+    required TResult Function(String? message) invalidCredential,
+    required TResult Function(String? message) notAllowed,
+  }) {
+    return invalidCredential(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
+  }) {
+    return invalidCredential?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
+    required TResult orElse(),
+  }) {
+    if (invalidCredential != null) {
+      return invalidCredential(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure<T> value) serverFailure,
+    required TResult Function(ConnectionFailure<T> value) connectionFailure,
+    required TResult Function(UserExists<T> value) userExists,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(LocalFailure<T> value) localFailure,
+    required TResult Function(InvalidAccount<T> value) invalidAccount,
+    required TResult Function(InvalidCredential<T> value) invalidCredential,
+    required TResult Function(NotAllowed<T> value) notAllowed,
+  }) {
+    return invalidCredential(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
+    TResult Function(ConnectionFailure<T> value)? connectionFailure,
+    TResult Function(UserExists<T> value)? userExists,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
+  }) {
+    return invalidCredential?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
+    TResult Function(ConnectionFailure<T> value)? connectionFailure,
+    TResult Function(UserExists<T> value)? userExists,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
+    required TResult orElse(),
+  }) {
+    if (invalidCredential != null) {
+      return invalidCredential(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidCredential<T> implements SignupFailures<T> {
+  const factory InvalidCredential(String? message) = _$InvalidCredential<T>;
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  $InvalidCredentialCopyWith<T, InvalidCredential<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $NotAllowedCopyWith<T, $Res>
+    implements $SignupFailuresCopyWith<T, $Res> {
+  factory $NotAllowedCopyWith(
+          NotAllowed<T> value, $Res Function(NotAllowed<T>) then) =
+      _$NotAllowedCopyWithImpl<T, $Res>;
+  @override
+  $Res call({String? message});
+}
+
+/// @nodoc
+class _$NotAllowedCopyWithImpl<T, $Res>
+    extends _$SignupFailuresCopyWithImpl<T, $Res>
+    implements $NotAllowedCopyWith<T, $Res> {
+  _$NotAllowedCopyWithImpl(
+      NotAllowed<T> _value, $Res Function(NotAllowed<T>) _then)
+      : super(_value, (v) => _then(v as NotAllowed<T>));
+
+  @override
+  NotAllowed<T> get _value => super._value as NotAllowed<T>;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(NotAllowed<T>(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NotAllowed<T> implements NotAllowed<T> {
+  const _$NotAllowed(this.message);
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'SignupFailures<$T>.notAllowed(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is NotAllowed<T> &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  $NotAllowedCopyWith<T, NotAllowed<T>> get copyWith =>
+      _$NotAllowedCopyWithImpl<T, NotAllowed<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? message) serverFailure,
+    required TResult Function(String? message) connectionFailure,
+    required TResult Function(String? message) userExists,
+    required TResult Function(String? message) cancelledByUser,
+    required TResult Function(String? message) localFailure,
+    required TResult Function(String? message) invalidAccount,
+    required TResult Function(String? message) invalidCredential,
+    required TResult Function(String? message) notAllowed,
+  }) {
+    return notAllowed(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
+  }) {
+    return notAllowed?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? message)? serverFailure,
+    TResult Function(String? message)? connectionFailure,
+    TResult Function(String? message)? userExists,
+    TResult Function(String? message)? cancelledByUser,
+    TResult Function(String? message)? localFailure,
+    TResult Function(String? message)? invalidAccount,
+    TResult Function(String? message)? invalidCredential,
+    TResult Function(String? message)? notAllowed,
+    required TResult orElse(),
+  }) {
+    if (notAllowed != null) {
+      return notAllowed(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerFailure<T> value) serverFailure,
+    required TResult Function(ConnectionFailure<T> value) connectionFailure,
+    required TResult Function(UserExists<T> value) userExists,
+    required TResult Function(CancelledByUser<T> value) cancelledByUser,
+    required TResult Function(LocalFailure<T> value) localFailure,
+    required TResult Function(InvalidAccount<T> value) invalidAccount,
+    required TResult Function(InvalidCredential<T> value) invalidCredential,
+    required TResult Function(NotAllowed<T> value) notAllowed,
+  }) {
+    return notAllowed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
+    TResult Function(ConnectionFailure<T> value)? connectionFailure,
+    TResult Function(UserExists<T> value)? userExists,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
+  }) {
+    return notAllowed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerFailure<T> value)? serverFailure,
+    TResult Function(ConnectionFailure<T> value)? connectionFailure,
+    TResult Function(UserExists<T> value)? userExists,
+    TResult Function(CancelledByUser<T> value)? cancelledByUser,
+    TResult Function(LocalFailure<T> value)? localFailure,
+    TResult Function(InvalidAccount<T> value)? invalidAccount,
+    TResult Function(InvalidCredential<T> value)? invalidCredential,
+    TResult Function(NotAllowed<T> value)? notAllowed,
+    required TResult orElse(),
+  }) {
+    if (notAllowed != null) {
+      return notAllowed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotAllowed<T> implements SignupFailures<T> {
+  const factory NotAllowed(String? message) = _$NotAllowed<T>;
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  $NotAllowedCopyWith<T, NotAllowed<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

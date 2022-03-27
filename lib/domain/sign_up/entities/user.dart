@@ -5,7 +5,7 @@ import 'package:moviesto/domain/sign_up/value_objects/password.dart';
 import 'package:moviesto/domain/sign_up/value_objects/phone.dart';
 
 class UserEnitity {
-  final String? uid;
+  String? uid;
   final NameVO? firstName, secondName;
   final PhoneVO? phoneNumber;
   final EmailVO? email;

@@ -23,5 +23,5 @@ class FailureMessage {
   static const String TOKEN_EXPIRED_OR_INVALID = 'Token expired or invalid';
   static const String UNKNOWN_ERROR = "Something went wrong";
   static const String CANCELLED_BY_USER = 'Cancelled by user';
-  static const String INVALID_USER = "Can't use this account";
+  static const String CACHING_ERROR = "Can't cache this user";
 }

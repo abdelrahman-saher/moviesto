@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,8 +10,14 @@ import 'package:moviesto/data/constants/failure_messages.dart';
 import 'package:moviesto/data/sign_up/data/local/signup_local_data_source.dart';
 import 'package:moviesto/data/sign_up/data/remote/signup_remote_data_source.dart';
 import 'package:moviesto/data/sign_up/failures.dart';
+import 'package:moviesto/data/sign_up/models/user_model.dart';
 import 'package:moviesto/data/sign_up/repositories/signup_repository_impl.dart';
 import 'package:moviesto/domain/sign_up/entities/social_credential.dart';
+import 'package:moviesto/domain/sign_up/entities/user.dart';
+import 'package:moviesto/domain/sign_up/value_objects/email.dart';
+import 'package:moviesto/domain/sign_up/value_objects/name.dart';
+import 'package:moviesto/domain/sign_up/value_objects/password.dart';
+import 'package:moviesto/domain/sign_up/value_objects/phone.dart';
 
 import 'signup_repository_impl_test.mocks.dart';
 
@@ -22,7 +27,6 @@ mixin LegacyOperator {
   @override
   int get hashCode => super.hashCode;
 }
-
 @GenerateMocks(
   [
     SignupRemoteDataSource,
@@ -33,6 +37,9 @@ mixin LegacyOperator {
     GoogleSignIn,
     GoogleSignInAuthentication,
     GoogleSignInAccount,
+    UserCredential,
+    User,
+    FirebaseAuth,
   ],
 )
 void main() {
@@ -46,6 +53,8 @@ void main() {
   late MockFacebookAuth mockFacebookAuth;
   late MockLoginResult mockLoginResult;
   late MockAccessToken mockAccessToken;
+  late MockUserCredential mockUserCredential;
+  late MockUser mockUser;
   setUp(() {
     mockFirebaseAuth = MockFirebaseAuth();
     mockSignupLocalDataSource = MockSignupLocalDataSource();
@@ -54,8 +63,10 @@ void main() {
     mockFacebookAuth = MockFacebookAuth();
     mockLoginResult = MockLoginResult();
     mockAccessToken = MockAccessToken();
+    mockUserCredential = MockUserCredential();
     mockGoogleSignInAuthentication = MockGoogleSignInAuthentication();
     mockGoogleSignInAccount = MockGoogleSignInAccount();
+    mockUser = MockUser();
     usecase = SignupRepositoryImpl(
       mockFirebaseAuth,
       mockSignupRemoteDataSource,
@@ -64,7 +75,182 @@ void main() {
       mockFacebookAuth,
     );
   });
+  final UserEnitity validUser = UserEnitity(
+    uid: '',
+    email: EmailVO("test@test.com"),
+    firstName: NameVO("test"),
+    secondName: NameVO("test"),
+    password: PasswordVO("Test123456"),
+    phoneNumber: PhoneVO("+201012345678"),
+  );
+  final UserEnitity notValidUser = UserEnitity(
+    uid: '',
+    email: EmailVO("testtestcom"),
+    firstName: NameVO(""),
+    secondName: NameVO(""),
+    password: PasswordVO("test1"),
+    phoneNumber: PhoneVO("2345678"),
+  );
   group("Signup Repository test -", () {
+    group("Create user with email and password test -", () {
+      test("if no exceptions should return unit", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenAnswer((_) async => mockUserCredential);
+        when(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .thenAnswer((_) async => "user-id");
+        when(mockSignupLocalDataSource
+                .cacheUser(UserModel.fromDomain(validUser)))
+            .thenAnswer((_) async => Future.value());
+        final result =
+            await usecase.createUserWithEmailAndPassword(user: validUser);
+        verify(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .called(1);
+        verify(mockSignupLocalDataSource
+                .cacheUser(UserModel.fromDomain(validUser)))
+            .called(1);
+        expect(result, equals(const Right(unit)));
+      });
+      test("if not valid user should return invalid credentials failure",
+          () async {
+        final result =
+            await usecase.createUserWithEmailAndPassword(user: notValidUser);
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        expect(
+          result,
+          equals(
+            const Left(
+              InvalidCredential(FailureMessage.INVALID_CREDENTIALS),
+            ),
+          ),
+        );
+      });
+      test("if email already in use should return User Exists", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenThrow(FirebaseAuthException(code: "email-already-in-use"));
+        final result =
+            await usecase.createUserWithEmailAndPassword(user: validUser);
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        expect(
+          result,
+          equals(
+            const Left(
+              UserExists(FailureMessage.EMAIL_ALREADY_IN_USE),
+            ),
+          ),
+        );
+      });
+      test("if invalid email should return Invalid credentials", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenThrow(FirebaseAuthException(code: "invalid-email"));
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        final result =
+            await usecase.createUserWithEmailAndPassword(user: validUser);
+        expect(
+          result,
+          equals(
+            const Left(
+              InvalidCredential(FailureMessage.INVALID_CREDENTIALS),
+            ),
+          ),
+        );
+      });
+      test("if weak password should return Invalid credentials", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenThrow(FirebaseAuthException(code: "weak-password"));
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        final result =
+            await usecase.createUserWithEmailAndPassword(user: validUser);
+        expect(
+          result,
+          equals(
+            const Left(
+              InvalidCredential(FailureMessage.INVALID_CREDENTIALS),
+            ),
+          ),
+        );
+      });
+      test("if not allowed should return not allowed failure", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenThrow(FirebaseAuthException(code: "operation-not-allowed"));
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        final result =
+            await usecase.createUserWithEmailAndPassword(user: validUser);
+        expect(
+          result,
+          equals(
+            const Left(
+              NotAllowed(FailureMessage.OPERATION_NOT_ALLOWED),
+            ),
+          ),
+        );
+      });
+      test(
+          "if adding user to firestore failed should return Server failure and remove firebase user and signout from firebase",
+          () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenAnswer((_) async => mockUserCredential);
+        when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.delete()).thenAnswer((_) async => Future.value());
+        when(mockFirebaseAuth.signOut())
+            .thenAnswer((_) async => Future.value());
+        when(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .thenThrow(const ServerFailure(FailureMessage.UNKNOWN_ERROR));
+        final result =
+            await usecase.createUserWithEmailAndPassword(user: validUser);
+        verify(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .called(1);
+
+        verify(mockUserCredential.user?.delete()).called(1);
+        verify(mockFirebaseAuth.signOut()).called(1);
+        verifyNever(mockSignupLocalDataSource
+            .cacheUser(UserModel.fromDomain(validUser)));
+        expect(result,
+            equals(const Left(ServerFailure(FailureMessage.UNKNOWN_ERROR))));
+      });
+      test("if caching user failed should return unit", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenAnswer((_) async => mockUserCredential);
+        when(mockUserCredential.user).thenReturn(mockUser);
+        when(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .thenAnswer((_) async => "uid");
+        when(mockSignupLocalDataSource
+                .cacheUser(UserModel.fromDomain(validUser)))
+            .thenThrow(const LocalFailure(FailureMessage.CACHING_ERROR));
+        final result =
+            await usecase.createUserWithEmailAndPassword(user: validUser);
+        verify(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .called(1);
+        verify(mockSignupLocalDataSource
+                .cacheUser(UserModel.fromDomain(validUser)))
+            .called(1);
+        expect(result, equals(const Right(unit)));
+      });
+    });
     group("Signup with google test -", () {
       test("Google sign in return null should return Cancelled by user failure",
           () async {

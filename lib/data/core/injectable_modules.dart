@@ -12,7 +12,9 @@ abstract class InjectableModule {
   @lazySingleton
   GetStorage get box => GetStorage();
   @lazySingleton
-  GoogleSignIn get googleSignIn => GoogleSignIn();
+  GoogleSignIn get googleSignIn => GoogleSignIn(scopes: [
+        'email',
+      ]);
   @lazySingleton
   FacebookAuth get facebookAuth => FacebookAuth.instance;
   @lazySingleton

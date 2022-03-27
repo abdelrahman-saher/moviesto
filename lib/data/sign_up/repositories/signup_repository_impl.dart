@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:moviesto/data/constants/failure_messages.dart';
 import 'package:moviesto/data/sign_up/data/local/signup_local_data_source.dart';
 import 'package:moviesto/data/sign_up/data/remote/signup_remote_data_source.dart';
+import 'package:moviesto/data/sign_up/models/user_model.dart';
 import 'package:moviesto/domain/sign_up/entities/user.dart';
 import 'package:moviesto/domain/sign_up/entities/social_credential.dart';
 import 'package:moviesto/data/sign_up/failures.dart';
@@ -24,14 +25,65 @@ class SignupRepositoryImpl implements SignupRepository {
   @override
   Future<Either<SignupFailures, Unit>> createUserWithEmailAndPassword(
       {UserEnitity? user}) async {
-    // TODO: implement signupWithFacebook
-    throw UnimplementedError();
+    UserCredential? authResult;
+    try {
+      if (!(user!.email!.isValid &&
+          user.password!.isValid &&
+          user.phoneNumber!.isValid &&
+          user.firstName!.isValid &&
+          user.secondName!.isValid)) {
+        return left(
+          const SignupFailures.invalidCredential(
+              FailureMessage.INVALID_CREDENTIALS),
+        );
+      }
+      authResult = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: user.email!.getNotNullValue()!,
+        password: user.password!.getNotNullValue()!,
+      );
+      final String? uid =
+          await _signupRemoteDataSource.addNewUser(UserModel.fromDomain(user));
+      user.uid = uid;
+      await _signupLocalDataSource.cacheUser(UserModel.fromDomain(user));
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == "email-already-in-use") {
+        return const Left(
+          SignupFailures.userExists(FailureMessage.EMAIL_ALREADY_IN_USE),
+        );
+      } else if (e.code == "invalid-email") {
+        return const Left(
+          SignupFailures.invalidCredential(FailureMessage.INVALID_CREDENTIALS),
+        );
+      } else if (e.code == "operation-not-allowed") {
+        return const Left(
+          SignupFailures.notAllowed(FailureMessage.OPERATION_NOT_ALLOWED),
+        );
+      } else if (e.code == "weak-password") {
+        return const Left(
+          SignupFailures.invalidCredential(FailureMessage.INVALID_CREDENTIALS),
+        );
+      } else {
+        return const Left(
+          SignupFailures.serverFailure(FailureMessage.UNKNOWN_ERROR),
+        );
+      }
+    } catch (e) {
+      if (e is ServerFailure) {
+        await authResult!.user?.delete();
+        await _firebaseAuth.signOut();
+      } else if (e is LocalFailure &&
+          e.message == FailureMessage.CACHING_ERROR) {
+        return const Right(unit);
+      }
+      return const Left(
+        SignupFailures.serverFailure(FailureMessage.UNKNOWN_ERROR),
+      );
+    }
   }
 
-  @override
   Future<Either<SignupFailures, Unit>> createUserWithSocial(
       {UserEnitity? user, SocialCredential? credential}) {
-    // TODO: implement signupWithFacebook
     throw UnimplementedError();
   }
 

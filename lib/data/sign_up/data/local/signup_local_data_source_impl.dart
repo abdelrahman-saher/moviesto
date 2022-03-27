@@ -14,7 +14,7 @@ class SignupLocalDataSourceImpl implements SignupLocalDataSource {
     try {
       await _box?.write(UserModel.USER_ID_BOX_KEY!, user.uid);
     } catch (e) {
-      throw const SignupFailures.localFailure(FailureMessage.UNKNOWN_ERROR);
+      throw const SignupFailures.localFailure(FailureMessage.CACHING_ERROR);
     }
   }
 }
