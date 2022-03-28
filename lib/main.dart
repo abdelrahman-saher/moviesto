@@ -10,5 +10,5 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   configureInjection(Environment.dev);
-  runApp(AppWidget());
+  runApp(const AppWidget());
 }
