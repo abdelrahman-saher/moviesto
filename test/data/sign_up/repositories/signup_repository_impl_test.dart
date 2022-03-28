@@ -55,6 +55,8 @@ void main() {
   late MockAccessToken mockAccessToken;
   late MockUserCredential mockUserCredential;
   late MockUser mockUser;
+  late MockUser mockSocialUser;
+  late MockUserCredential mockSocialUserCredential;
   setUp(() {
     mockFirebaseAuth = MockFirebaseAuth();
     mockSignupLocalDataSource = MockSignupLocalDataSource();
@@ -67,6 +69,8 @@ void main() {
     mockGoogleSignInAuthentication = MockGoogleSignInAuthentication();
     mockGoogleSignInAccount = MockGoogleSignInAccount();
     mockUser = MockUser();
+    mockSocialUser = MockUser();
+    mockSocialUserCredential = MockUserCredential();
     usecase = SignupRepositoryImpl(
       mockFirebaseAuth,
       mockSignupRemoteDataSource,
@@ -91,6 +95,8 @@ void main() {
     password: PasswordVO("test1"),
     phoneNumber: PhoneVO("2345678"),
   );
+  final SocialCredential socialCredential = SocialCredential(
+      const AuthCredential(providerId: "", signInMethod: "", token: 0));
   group("Signup Repository test -", () {
     group("Create user with email and password test -", () {
       test("if no exceptions should return unit", () async {
@@ -104,6 +110,9 @@ void main() {
         when(mockSignupLocalDataSource
                 .cacheUser(UserModel.fromDomain(validUser)))
             .thenAnswer((_) async => Future.value());
+        when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.linkWithCredential(socialCredential.authCredential))
+            .thenAnswer((_) async => mockUserCredential);
         final result =
             await usecase.createUserWithEmailAndPassword(user: validUser);
         verify(mockSignupRemoteDataSource
@@ -201,6 +210,7 @@ void main() {
           ),
         );
       });
+
       test(
           "if adding user to firestore failed should return Server failure and remove firebase user and signout from firebase",
           () async {
@@ -209,6 +219,8 @@ void main() {
                 password: validUser.password!.getNotNullValue()!))
             .thenAnswer((_) async => mockUserCredential);
         when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.linkWithCredential(socialCredential.authCredential))
+            .thenAnswer((_) async => mockUserCredential);
         when(mockUser.delete()).thenAnswer((_) async => Future.value());
         when(mockFirebaseAuth.signOut())
             .thenAnswer((_) async => Future.value());
@@ -220,8 +232,7 @@ void main() {
         verify(mockSignupRemoteDataSource
                 .addNewUser(UserModel.fromDomain(validUser)))
             .called(1);
-
-        verify(mockUserCredential.user?.delete()).called(1);
+        verify(mockUserCredential.user?.delete()).called(greaterThanOrEqualTo(1));
         verify(mockFirebaseAuth.signOut()).called(1);
         verifyNever(mockSignupLocalDataSource
             .cacheUser(UserModel.fromDomain(validUser)));
@@ -233,7 +244,9 @@ void main() {
                 email: validUser.email!.getNotNullValue()!,
                 password: validUser.password!.getNotNullValue()!))
             .thenAnswer((_) async => mockUserCredential);
-        when(mockUserCredential.user).thenReturn(mockUser);
+        when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.linkWithCredential(socialCredential.authCredential))
+            .thenAnswer((_) async => mockUserCredential);
         when(mockSignupRemoteDataSource
                 .addNewUser(UserModel.fromDomain(validUser)))
             .thenAnswer((_) async => "uid");
@@ -249,6 +262,248 @@ void main() {
                 .cacheUser(UserModel.fromDomain(validUser)))
             .called(1);
         expect(result, equals(const Right(unit)));
+      });
+    });
+    group("Create user with social test -", () {
+      test("if no exceptions should return unit", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenAnswer((_) async => mockUserCredential);
+        when(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .thenAnswer((_) async => "user-id");
+        when(mockSignupLocalDataSource
+                .cacheUser(UserModel.fromDomain(validUser)))
+            .thenAnswer((_) async => Future.value());
+        when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.linkWithCredential(socialCredential.authCredential))
+            .thenAnswer((_) async => mockSocialUserCredential);
+        final result = await usecase.createUserWithSocial(
+            user: validUser, credential: socialCredential);
+        verify(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .called(1);
+        verify(mockSignupLocalDataSource
+                .cacheUser(UserModel.fromDomain(validUser)))
+            .called(1);
+        verify(mockUser.linkWithCredential(socialCredential.authCredential))
+            .called(1);
+        expect(result, equals(const Right(unit)));
+      });
+      test("if not valid user should return invalid credentials failure",
+          () async {
+        final result = await usecase.createUserWithSocial(
+            user: notValidUser, credential: socialCredential);
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        expect(
+          result,
+          equals(
+            const Left(
+              InvalidCredential(FailureMessage.INVALID_CREDENTIALS),
+            ),
+          ),
+        );
+      });
+      test("if email already in use should return User Exists", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenThrow(FirebaseAuthException(code: "email-already-in-use"));
+        final result = await usecase.createUserWithSocial(
+            user: validUser, credential: socialCredential);
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        expect(
+          result,
+          equals(
+            const Left(
+              UserExists(FailureMessage.EMAIL_ALREADY_IN_USE),
+            ),
+          ),
+        );
+      });
+      test("if invalid email should return Invalid credentials", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenThrow(FirebaseAuthException(code: "invalid-email"));
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        final result = await usecase.createUserWithSocial(
+            user: validUser, credential: socialCredential);
+        expect(
+          result,
+          equals(
+            const Left(
+              InvalidCredential(FailureMessage.INVALID_CREDENTIALS),
+            ),
+          ),
+        );
+      });
+      test("if weak password should return Invalid credentials", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenThrow(FirebaseAuthException(code: "weak-password"));
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        final result = await usecase.createUserWithSocial(
+            user: validUser, credential: socialCredential);
+        expect(
+          result,
+          equals(
+            const Left(
+              InvalidCredential(FailureMessage.INVALID_CREDENTIALS),
+            ),
+          ),
+        );
+      });
+      test("if not allowed should return not allowed failure", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenThrow(FirebaseAuthException(code: "operation-not-allowed"));
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        final result = await usecase.createUserWithSocial(
+            user: validUser, credential: socialCredential);
+        expect(
+          result,
+          equals(
+            const Left(
+              NotAllowed(FailureMessage.OPERATION_NOT_ALLOWED),
+            ),
+          ),
+        );
+      });
+      test(
+          "if adding user to firestore failed should return Server failure and remove firebase user and signout from firebase",
+          () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenAnswer((_) async => mockUserCredential);
+        when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.linkWithCredential(socialCredential.authCredential))
+            .thenAnswer((_) async => mockSocialUserCredential);
+        when(mockSocialUserCredential.user).thenAnswer((_) => mockSocialUser);
+        when(mockUser.delete()).thenAnswer((_) async => Future.value());
+        when(mockFirebaseAuth.signOut())
+            .thenAnswer((_) async => Future.value());
+        when(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .thenThrow(const ServerFailure(FailureMessage.UNKNOWN_ERROR));
+        final result = await usecase.createUserWithSocial(
+            user: validUser, credential: socialCredential);
+        verify(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .called(1);
+        verify(mockUserCredential.user?.delete()).called(greaterThanOrEqualTo(1));
+        verify(mockSocialUserCredential.user?.delete()).called(greaterThanOrEqualTo(1));
+        verify(mockFirebaseAuth.signOut()).called(1);
+        verifyNever(mockSignupLocalDataSource
+            .cacheUser(UserModel.fromDomain(validUser)));
+        expect(result,
+            equals(const Left(ServerFailure(FailureMessage.UNKNOWN_ERROR))));
+      });
+      test("if caching user failed should return unit", () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenAnswer((_) async => mockUserCredential);
+        when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.linkWithCredential(socialCredential.authCredential))
+            .thenAnswer((_) async => mockUserCredential);
+        when(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .thenAnswer((_) async => "uid");
+        when(mockSignupLocalDataSource
+                .cacheUser(UserModel.fromDomain(validUser)))
+            .thenThrow(const LocalFailure(FailureMessage.CACHING_ERROR));
+        final result = await usecase.createUserWithSocial(
+            user: validUser, credential: socialCredential);
+        verify(mockSignupRemoteDataSource
+                .addNewUser(UserModel.fromDomain(validUser)))
+            .called(1);
+        verify(mockSignupLocalDataSource
+                .cacheUser(UserModel.fromDomain(validUser)))
+            .called(1);
+        expect(result, equals(const Right(unit)));
+      });
+      test(
+          "if social media account already linked should return user exist failure",
+          () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenAnswer((_) async => mockUserCredential);
+        when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.linkWithCredential(socialCredential.authCredential))
+            .thenThrow(FirebaseAuthException(code: "provider-already-linked"));
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        final result = await usecase.createUserWithSocial(
+            user: validUser, credential: socialCredential);
+        expect(
+          result,
+          equals(
+            const Left(
+              UserExists(FailureMessage.EMAIL_ALREADY_IN_USE),
+            ),
+          ),
+        );
+      });
+      test(
+          "if invalid social media account should return invalid credentials failure",
+          () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenAnswer((_) async => mockUserCredential);
+        when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.linkWithCredential(socialCredential.authCredential))
+            .thenThrow(FirebaseAuthException(code: "invalid-credential"));
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        final result = await usecase.createUserWithSocial(
+            user: validUser, credential: socialCredential);
+        expect(
+          result,
+          equals(
+            const Left(
+              InvalidCredential(FailureMessage.INVALID_CREDENTIALS),
+            ),
+          ),
+        );
+      });
+      test("if linking social media accoutn failed should return failure",
+          () async {
+        when(mockFirebaseAuth.createUserWithEmailAndPassword(
+                email: validUser.email!.getNotNullValue()!,
+                password: validUser.password!.getNotNullValue()!))
+            .thenAnswer((_) async => mockUserCredential);
+        when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.linkWithCredential(socialCredential.authCredential))
+            .thenThrow(FirebaseAuthException(code: "invalid-credential"));
+        when(mockUser.delete()).thenAnswer((_) async => Future.value());
+        when(mockFirebaseAuth.signOut())
+            .thenAnswer((_) async => Future.value());
+        verifyNever(mockSignupRemoteDataSource.addNewUser(any));
+        verifyNever(mockSignupLocalDataSource.cacheUser(any));
+        final result = await usecase.createUserWithSocial(
+            user: validUser, credential: socialCredential);
+        verify(mockUserCredential.user?.delete()).called(greaterThanOrEqualTo(1));
+        verify(mockFirebaseAuth.signOut()).called(1);
+        expect(
+          result,
+          equals(
+            const Left(
+              InvalidCredential(FailureMessage.INVALID_CREDENTIALS),
+            ),
+          ),
+        );
       });
     });
     group("Signup with google test -", () {
