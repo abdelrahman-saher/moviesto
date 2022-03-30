@@ -1,10 +1,11 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:moviesto/domain/sign_up/value_objects/email.dart';
 import 'package:moviesto/domain/sign_up/value_objects/name.dart';
 import 'package:moviesto/domain/sign_up/value_objects/password.dart';
 import 'package:moviesto/domain/sign_up/value_objects/phone.dart';
 
-class UserEnitity {
+class UserEnitity extends Equatable {
   String? uid;
   final NameVO? firstName, secondName;
   final PhoneVO? phoneNumber;
@@ -18,4 +19,14 @@ class UserEnitity {
     @required this.email,
     @required this.password,
   });
+
+  @override
+  List<Object?> get props => [
+        uid,
+        firstName,
+        secondName,
+        phoneNumber,
+        email,
+        password,
+      ];
 }
