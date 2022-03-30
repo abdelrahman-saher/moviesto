@@ -124,25 +124,7 @@ void main() {
           initialState.copyWith(showPassword: false),
         ],
       );
-      blocTest(
-        "show confirm password should be true if showPassword called once",
-        build: () => signUpBloc,
-        act: (SignUpBloc bloc) => bloc.add(const ShowConfirmPassword()),
-        expect: () => [
-          initialState.copyWith(showConfirmPassword: true),
-        ],
-      );
-      blocTest(
-        "show confirm password should be false if showPassword called twice",
-        build: () => signUpBloc,
-        act: (SignUpBloc bloc) => bloc
-          ..add(const ShowConfirmPassword())
-          ..add(const ShowConfirmPassword()),
-        expect: () => [
-          initialState.copyWith(showConfirmPassword: true),
-          initialState.copyWith(showConfirmPassword: false),
-        ],
-      );
+
       blocTest(
         "should change credentials to none",
         build: () => signUpBloc,
@@ -320,10 +302,18 @@ void main() {
                       showErrorMessages: false,
                       isLoading: true,
                     ),
-                    initialState.copyWith(result: some(const Right(unit))),
                     initialState.copyWith(
-                        showErrorMessages: true,
-                        result: some(const Right(unit))),
+                      showErrorMessages: true,
+                      result: some(const Right(unit)),
+                      credential: some(
+                        Right(socialCredential),
+                      ),
+                      firstName: NameVO(firstName),
+                      secondName: NameVO(secondName),
+                      password: PasswordVO(password),
+                      phoneNumber: PhoneVO(phone),
+                      emailVO: EmailVO(socialCredential.email!),
+                    ),
                   ],
               verify: (_) {
                 verify(mockSignupRepository.createUserWithSocial(
@@ -388,9 +378,15 @@ void main() {
                     showErrorMessages: false,
                     isLoading: true,
                   ),
-                  initialState.copyWith(result: some(const Right(unit))),
                   initialState.copyWith(
-                      showErrorMessages: true, result: some(const Right(unit))),
+                    showErrorMessages: true,
+                    result: some(const Right(unit)),
+                    firstName: NameVO(firstName),
+                    secondName: NameVO(secondName),
+                    password: PasswordVO(password),
+                    phoneNumber: PhoneVO(phone),
+                    emailVO: EmailVO(email),
+                  ),
                 ],
             verify: (_) {
               verify(mockSignupRepository.createUserWithEmailAndPassword(

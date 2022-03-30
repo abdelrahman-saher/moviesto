@@ -3,12 +3,9 @@ part of 'sign_up_bloc.dart';
 @freezed
 class SignUpEvent with _$SignUpEvent {
   const factory SignUpEvent.showPassword() = ShowPassword;
-  const factory SignUpEvent.showConfirmPassword() = ShowConfirmPassword;
   const factory SignUpEvent.changeEmail(String? emailInput) = ChangeEmail;
   const factory SignUpEvent.changePassword(String? passwordInput) =
       ChangePassword;
-  const factory SignUpEvent.changeConfirmPassword(String? passwordInput) =
-      ChangeConfirmPassword;
   const factory SignUpEvent.changeFirstName(String? firstNameInput) =
       ChangeFirstName;
   const factory SignUpEvent.changeSecondName(String? secondNameInput) =

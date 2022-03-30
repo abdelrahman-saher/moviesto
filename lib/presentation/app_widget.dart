@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../router.gr.dart';
 
 class AppWidget extends StatefulWidget {

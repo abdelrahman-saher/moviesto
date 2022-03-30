@@ -21,10 +21,6 @@ class _$SignUpEventTearOff {
     return const ShowPassword();
   }
 
-  ShowConfirmPassword showConfirmPassword() {
-    return const ShowConfirmPassword();
-  }
-
   ChangeEmail changeEmail(String? emailInput) {
     return ChangeEmail(
       emailInput,
@@ -33,12 +29,6 @@ class _$SignUpEventTearOff {
 
   ChangePassword changePassword(String? passwordInput) {
     return ChangePassword(
-      passwordInput,
-    );
-  }
-
-  ChangeConfirmPassword changeConfirmPassword(String? passwordInput) {
-    return ChangeConfirmPassword(
       passwordInput,
     );
   }
@@ -94,10 +84,8 @@ mixin _$SignUpEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -112,10 +100,8 @@ mixin _$SignUpEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -130,10 +116,8 @@ mixin _$SignUpEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -149,11 +133,8 @@ mixin _$SignUpEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -169,10 +150,8 @@ mixin _$SignUpEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -188,10 +167,8 @@ mixin _$SignUpEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -264,10 +241,8 @@ class _$ShowPassword implements ShowPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -285,10 +260,8 @@ class _$ShowPassword implements ShowPassword {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -306,10 +279,8 @@ class _$ShowPassword implements ShowPassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -331,11 +302,8 @@ class _$ShowPassword implements ShowPassword {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -354,10 +322,8 @@ class _$ShowPassword implements ShowPassword {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -376,10 +342,8 @@ class _$ShowPassword implements ShowPassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -401,187 +365,6 @@ class _$ShowPassword implements ShowPassword {
 
 abstract class ShowPassword implements SignUpEvent {
   const factory ShowPassword() = _$ShowPassword;
-}
-
-/// @nodoc
-abstract class $ShowConfirmPasswordCopyWith<$Res> {
-  factory $ShowConfirmPasswordCopyWith(
-          ShowConfirmPassword value, $Res Function(ShowConfirmPassword) then) =
-      _$ShowConfirmPasswordCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$ShowConfirmPasswordCopyWithImpl<$Res>
-    extends _$SignUpEventCopyWithImpl<$Res>
-    implements $ShowConfirmPasswordCopyWith<$Res> {
-  _$ShowConfirmPasswordCopyWithImpl(
-      ShowConfirmPassword _value, $Res Function(ShowConfirmPassword) _then)
-      : super(_value, (v) => _then(v as ShowConfirmPassword));
-
-  @override
-  ShowConfirmPassword get _value => super._value as ShowConfirmPassword;
-}
-
-/// @nodoc
-
-class _$ShowConfirmPassword implements ShowConfirmPassword {
-  const _$ShowConfirmPassword();
-
-  @override
-  String toString() {
-    return 'SignUpEvent.showConfirmPassword()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ShowConfirmPassword);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
-    required TResult Function(String? emailInput) changeEmail,
-    required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
-    required TResult Function(String? firstNameInput) changeFirstName,
-    required TResult Function(String? secondNameInput) changeSecondName,
-    required TResult Function(String? phoneInput) changePhone,
-    required TResult Function() signUpWithGoogle,
-    required TResult Function() signUpWithFacebook,
-    required TResult Function() signUpWithEmailAndPassword,
-    required TResult Function() createSocialUser,
-    required TResult Function() clearCredentials,
-    required TResult Function() clearResult,
-  }) {
-    return showConfirmPassword();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
-    TResult Function(String? emailInput)? changeEmail,
-    TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
-    TResult Function(String? firstNameInput)? changeFirstName,
-    TResult Function(String? secondNameInput)? changeSecondName,
-    TResult Function(String? phoneInput)? changePhone,
-    TResult Function()? signUpWithGoogle,
-    TResult Function()? signUpWithFacebook,
-    TResult Function()? signUpWithEmailAndPassword,
-    TResult Function()? createSocialUser,
-    TResult Function()? clearCredentials,
-    TResult Function()? clearResult,
-  }) {
-    return showConfirmPassword?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
-    TResult Function(String? emailInput)? changeEmail,
-    TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
-    TResult Function(String? firstNameInput)? changeFirstName,
-    TResult Function(String? secondNameInput)? changeSecondName,
-    TResult Function(String? phoneInput)? changePhone,
-    TResult Function()? signUpWithGoogle,
-    TResult Function()? signUpWithFacebook,
-    TResult Function()? signUpWithEmailAndPassword,
-    TResult Function()? createSocialUser,
-    TResult Function()? clearCredentials,
-    TResult Function()? clearResult,
-    required TResult orElse(),
-  }) {
-    if (showConfirmPassword != null) {
-      return showConfirmPassword();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
-    required TResult Function(ChangeEmail value) changeEmail,
-    required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
-    required TResult Function(ChangeFirstName value) changeFirstName,
-    required TResult Function(ChangeSecondName value) changeSecondName,
-    required TResult Function(ChangePhone value) changePhone,
-    required TResult Function(SignUpWithGoogle value) signUpWithGoogle,
-    required TResult Function(SignUpWithFacebook value) signUpWithFacebook,
-    required TResult Function(SignUpWithEmailAndPassword value)
-        signUpWithEmailAndPassword,
-    required TResult Function(CreateSocialUser value) createSocialUser,
-    required TResult Function(ClearCredentials value) clearCredentials,
-    required TResult Function(ClearResult value) clearResult,
-  }) {
-    return showConfirmPassword(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
-    TResult Function(ChangeEmail value)? changeEmail,
-    TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
-    TResult Function(ChangeFirstName value)? changeFirstName,
-    TResult Function(ChangeSecondName value)? changeSecondName,
-    TResult Function(ChangePhone value)? changePhone,
-    TResult Function(SignUpWithGoogle value)? signUpWithGoogle,
-    TResult Function(SignUpWithFacebook value)? signUpWithFacebook,
-    TResult Function(SignUpWithEmailAndPassword value)?
-        signUpWithEmailAndPassword,
-    TResult Function(CreateSocialUser value)? createSocialUser,
-    TResult Function(ClearCredentials value)? clearCredentials,
-    TResult Function(ClearResult value)? clearResult,
-  }) {
-    return showConfirmPassword?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
-    TResult Function(ChangeEmail value)? changeEmail,
-    TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
-    TResult Function(ChangeFirstName value)? changeFirstName,
-    TResult Function(ChangeSecondName value)? changeSecondName,
-    TResult Function(ChangePhone value)? changePhone,
-    TResult Function(SignUpWithGoogle value)? signUpWithGoogle,
-    TResult Function(SignUpWithFacebook value)? signUpWithFacebook,
-    TResult Function(SignUpWithEmailAndPassword value)?
-        signUpWithEmailAndPassword,
-    TResult Function(CreateSocialUser value)? createSocialUser,
-    TResult Function(ClearCredentials value)? clearCredentials,
-    TResult Function(ClearResult value)? clearResult,
-    required TResult orElse(),
-  }) {
-    if (showConfirmPassword != null) {
-      return showConfirmPassword(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ShowConfirmPassword implements SignUpEvent {
-  const factory ShowConfirmPassword() = _$ShowConfirmPassword;
 }
 
 /// @nodoc
@@ -650,10 +433,8 @@ class _$ChangeEmail implements ChangeEmail {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -671,10 +452,8 @@ class _$ChangeEmail implements ChangeEmail {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -692,10 +471,8 @@ class _$ChangeEmail implements ChangeEmail {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -717,11 +494,8 @@ class _$ChangeEmail implements ChangeEmail {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -740,10 +514,8 @@ class _$ChangeEmail implements ChangeEmail {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -762,10 +534,8 @@ class _$ChangeEmail implements ChangeEmail {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -860,10 +630,8 @@ class _$ChangePassword implements ChangePassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -881,10 +649,8 @@ class _$ChangePassword implements ChangePassword {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -902,10 +668,8 @@ class _$ChangePassword implements ChangePassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -927,11 +691,8 @@ class _$ChangePassword implements ChangePassword {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -950,10 +711,8 @@ class _$ChangePassword implements ChangePassword {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -972,10 +731,8 @@ class _$ChangePassword implements ChangePassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -1001,219 +758,6 @@ abstract class ChangePassword implements SignUpEvent {
   String? get passwordInput;
   @JsonKey(ignore: true)
   $ChangePasswordCopyWith<ChangePassword> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ChangeConfirmPasswordCopyWith<$Res> {
-  factory $ChangeConfirmPasswordCopyWith(ChangeConfirmPassword value,
-          $Res Function(ChangeConfirmPassword) then) =
-      _$ChangeConfirmPasswordCopyWithImpl<$Res>;
-  $Res call({String? passwordInput});
-}
-
-/// @nodoc
-class _$ChangeConfirmPasswordCopyWithImpl<$Res>
-    extends _$SignUpEventCopyWithImpl<$Res>
-    implements $ChangeConfirmPasswordCopyWith<$Res> {
-  _$ChangeConfirmPasswordCopyWithImpl(
-      ChangeConfirmPassword _value, $Res Function(ChangeConfirmPassword) _then)
-      : super(_value, (v) => _then(v as ChangeConfirmPassword));
-
-  @override
-  ChangeConfirmPassword get _value => super._value as ChangeConfirmPassword;
-
-  @override
-  $Res call({
-    Object? passwordInput = freezed,
-  }) {
-    return _then(ChangeConfirmPassword(
-      passwordInput == freezed
-          ? _value.passwordInput
-          : passwordInput // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChangeConfirmPassword implements ChangeConfirmPassword {
-  const _$ChangeConfirmPassword(this.passwordInput);
-
-  @override
-  final String? passwordInput;
-
-  @override
-  String toString() {
-    return 'SignUpEvent.changeConfirmPassword(passwordInput: $passwordInput)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ChangeConfirmPassword &&
-            const DeepCollectionEquality()
-                .equals(other.passwordInput, passwordInput));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(passwordInput));
-
-  @JsonKey(ignore: true)
-  @override
-  $ChangeConfirmPasswordCopyWith<ChangeConfirmPassword> get copyWith =>
-      _$ChangeConfirmPasswordCopyWithImpl<ChangeConfirmPassword>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
-    required TResult Function(String? emailInput) changeEmail,
-    required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
-    required TResult Function(String? firstNameInput) changeFirstName,
-    required TResult Function(String? secondNameInput) changeSecondName,
-    required TResult Function(String? phoneInput) changePhone,
-    required TResult Function() signUpWithGoogle,
-    required TResult Function() signUpWithFacebook,
-    required TResult Function() signUpWithEmailAndPassword,
-    required TResult Function() createSocialUser,
-    required TResult Function() clearCredentials,
-    required TResult Function() clearResult,
-  }) {
-    return changeConfirmPassword(passwordInput);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
-    TResult Function(String? emailInput)? changeEmail,
-    TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
-    TResult Function(String? firstNameInput)? changeFirstName,
-    TResult Function(String? secondNameInput)? changeSecondName,
-    TResult Function(String? phoneInput)? changePhone,
-    TResult Function()? signUpWithGoogle,
-    TResult Function()? signUpWithFacebook,
-    TResult Function()? signUpWithEmailAndPassword,
-    TResult Function()? createSocialUser,
-    TResult Function()? clearCredentials,
-    TResult Function()? clearResult,
-  }) {
-    return changeConfirmPassword?.call(passwordInput);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
-    TResult Function(String? emailInput)? changeEmail,
-    TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
-    TResult Function(String? firstNameInput)? changeFirstName,
-    TResult Function(String? secondNameInput)? changeSecondName,
-    TResult Function(String? phoneInput)? changePhone,
-    TResult Function()? signUpWithGoogle,
-    TResult Function()? signUpWithFacebook,
-    TResult Function()? signUpWithEmailAndPassword,
-    TResult Function()? createSocialUser,
-    TResult Function()? clearCredentials,
-    TResult Function()? clearResult,
-    required TResult orElse(),
-  }) {
-    if (changeConfirmPassword != null) {
-      return changeConfirmPassword(passwordInput);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
-    required TResult Function(ChangeEmail value) changeEmail,
-    required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
-    required TResult Function(ChangeFirstName value) changeFirstName,
-    required TResult Function(ChangeSecondName value) changeSecondName,
-    required TResult Function(ChangePhone value) changePhone,
-    required TResult Function(SignUpWithGoogle value) signUpWithGoogle,
-    required TResult Function(SignUpWithFacebook value) signUpWithFacebook,
-    required TResult Function(SignUpWithEmailAndPassword value)
-        signUpWithEmailAndPassword,
-    required TResult Function(CreateSocialUser value) createSocialUser,
-    required TResult Function(ClearCredentials value) clearCredentials,
-    required TResult Function(ClearResult value) clearResult,
-  }) {
-    return changeConfirmPassword(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
-    TResult Function(ChangeEmail value)? changeEmail,
-    TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
-    TResult Function(ChangeFirstName value)? changeFirstName,
-    TResult Function(ChangeSecondName value)? changeSecondName,
-    TResult Function(ChangePhone value)? changePhone,
-    TResult Function(SignUpWithGoogle value)? signUpWithGoogle,
-    TResult Function(SignUpWithFacebook value)? signUpWithFacebook,
-    TResult Function(SignUpWithEmailAndPassword value)?
-        signUpWithEmailAndPassword,
-    TResult Function(CreateSocialUser value)? createSocialUser,
-    TResult Function(ClearCredentials value)? clearCredentials,
-    TResult Function(ClearResult value)? clearResult,
-  }) {
-    return changeConfirmPassword?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
-    TResult Function(ChangeEmail value)? changeEmail,
-    TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
-    TResult Function(ChangeFirstName value)? changeFirstName,
-    TResult Function(ChangeSecondName value)? changeSecondName,
-    TResult Function(ChangePhone value)? changePhone,
-    TResult Function(SignUpWithGoogle value)? signUpWithGoogle,
-    TResult Function(SignUpWithFacebook value)? signUpWithFacebook,
-    TResult Function(SignUpWithEmailAndPassword value)?
-        signUpWithEmailAndPassword,
-    TResult Function(CreateSocialUser value)? createSocialUser,
-    TResult Function(ClearCredentials value)? clearCredentials,
-    TResult Function(ClearResult value)? clearResult,
-    required TResult orElse(),
-  }) {
-    if (changeConfirmPassword != null) {
-      return changeConfirmPassword(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangeConfirmPassword implements SignUpEvent {
-  const factory ChangeConfirmPassword(String? passwordInput) =
-      _$ChangeConfirmPassword;
-
-  String? get passwordInput;
-  @JsonKey(ignore: true)
-  $ChangeConfirmPasswordCopyWith<ChangeConfirmPassword> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1284,10 +828,8 @@ class _$ChangeFirstName implements ChangeFirstName {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -1305,10 +847,8 @@ class _$ChangeFirstName implements ChangeFirstName {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -1326,10 +866,8 @@ class _$ChangeFirstName implements ChangeFirstName {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -1351,11 +889,8 @@ class _$ChangeFirstName implements ChangeFirstName {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -1374,10 +909,8 @@ class _$ChangeFirstName implements ChangeFirstName {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -1396,10 +929,8 @@ class _$ChangeFirstName implements ChangeFirstName {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -1495,10 +1026,8 @@ class _$ChangeSecondName implements ChangeSecondName {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -1516,10 +1045,8 @@ class _$ChangeSecondName implements ChangeSecondName {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -1537,10 +1064,8 @@ class _$ChangeSecondName implements ChangeSecondName {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -1562,11 +1087,8 @@ class _$ChangeSecondName implements ChangeSecondName {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -1585,10 +1107,8 @@ class _$ChangeSecondName implements ChangeSecondName {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -1607,10 +1127,8 @@ class _$ChangeSecondName implements ChangeSecondName {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -1705,10 +1223,8 @@ class _$ChangePhone implements ChangePhone {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -1726,10 +1242,8 @@ class _$ChangePhone implements ChangePhone {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -1747,10 +1261,8 @@ class _$ChangePhone implements ChangePhone {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -1772,11 +1284,8 @@ class _$ChangePhone implements ChangePhone {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -1795,10 +1304,8 @@ class _$ChangePhone implements ChangePhone {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -1817,10 +1324,8 @@ class _$ChangePhone implements ChangePhone {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -1891,10 +1396,8 @@ class _$SignUpWithGoogle implements SignUpWithGoogle {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -1912,10 +1415,8 @@ class _$SignUpWithGoogle implements SignUpWithGoogle {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -1933,10 +1434,8 @@ class _$SignUpWithGoogle implements SignUpWithGoogle {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -1958,11 +1457,8 @@ class _$SignUpWithGoogle implements SignUpWithGoogle {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -1981,10 +1477,8 @@ class _$SignUpWithGoogle implements SignUpWithGoogle {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2003,10 +1497,8 @@ class _$SignUpWithGoogle implements SignUpWithGoogle {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2072,10 +1564,8 @@ class _$SignUpWithFacebook implements SignUpWithFacebook {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -2093,10 +1583,8 @@ class _$SignUpWithFacebook implements SignUpWithFacebook {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -2114,10 +1602,8 @@ class _$SignUpWithFacebook implements SignUpWithFacebook {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -2139,11 +1625,8 @@ class _$SignUpWithFacebook implements SignUpWithFacebook {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -2162,10 +1645,8 @@ class _$SignUpWithFacebook implements SignUpWithFacebook {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2184,10 +1665,8 @@ class _$SignUpWithFacebook implements SignUpWithFacebook {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2255,10 +1734,8 @@ class _$SignUpWithEmailAndPassword implements SignUpWithEmailAndPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -2276,10 +1753,8 @@ class _$SignUpWithEmailAndPassword implements SignUpWithEmailAndPassword {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -2297,10 +1772,8 @@ class _$SignUpWithEmailAndPassword implements SignUpWithEmailAndPassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -2322,11 +1795,8 @@ class _$SignUpWithEmailAndPassword implements SignUpWithEmailAndPassword {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -2345,10 +1815,8 @@ class _$SignUpWithEmailAndPassword implements SignUpWithEmailAndPassword {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2367,10 +1835,8 @@ class _$SignUpWithEmailAndPassword implements SignUpWithEmailAndPassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2436,10 +1902,8 @@ class _$CreateSocialUser implements CreateSocialUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -2457,10 +1921,8 @@ class _$CreateSocialUser implements CreateSocialUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -2478,10 +1940,8 @@ class _$CreateSocialUser implements CreateSocialUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -2503,11 +1963,8 @@ class _$CreateSocialUser implements CreateSocialUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -2526,10 +1983,8 @@ class _$CreateSocialUser implements CreateSocialUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2548,10 +2003,8 @@ class _$CreateSocialUser implements CreateSocialUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2617,10 +2070,8 @@ class _$ClearCredentials implements ClearCredentials {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -2638,10 +2089,8 @@ class _$ClearCredentials implements ClearCredentials {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -2659,10 +2108,8 @@ class _$ClearCredentials implements ClearCredentials {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -2684,11 +2131,8 @@ class _$ClearCredentials implements ClearCredentials {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -2707,10 +2151,8 @@ class _$ClearCredentials implements ClearCredentials {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2729,10 +2171,8 @@ class _$ClearCredentials implements ClearCredentials {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2797,10 +2237,8 @@ class _$ClearResult implements ClearResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() showPassword,
-    required TResult Function() showConfirmPassword,
     required TResult Function(String? emailInput) changeEmail,
     required TResult Function(String? passwordInput) changePassword,
-    required TResult Function(String? passwordInput) changeConfirmPassword,
     required TResult Function(String? firstNameInput) changeFirstName,
     required TResult Function(String? secondNameInput) changeSecondName,
     required TResult Function(String? phoneInput) changePhone,
@@ -2818,10 +2256,8 @@ class _$ClearResult implements ClearResult {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -2839,10 +2275,8 @@ class _$ClearResult implements ClearResult {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? showPassword,
-    TResult Function()? showConfirmPassword,
     TResult Function(String? emailInput)? changeEmail,
     TResult Function(String? passwordInput)? changePassword,
-    TResult Function(String? passwordInput)? changeConfirmPassword,
     TResult Function(String? firstNameInput)? changeFirstName,
     TResult Function(String? secondNameInput)? changeSecondName,
     TResult Function(String? phoneInput)? changePhone,
@@ -2864,11 +2298,8 @@ class _$ClearResult implements ClearResult {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShowPassword value) showPassword,
-    required TResult Function(ShowConfirmPassword value) showConfirmPassword,
     required TResult Function(ChangeEmail value) changeEmail,
     required TResult Function(ChangePassword value) changePassword,
-    required TResult Function(ChangeConfirmPassword value)
-        changeConfirmPassword,
     required TResult Function(ChangeFirstName value) changeFirstName,
     required TResult Function(ChangeSecondName value) changeSecondName,
     required TResult Function(ChangePhone value) changePhone,
@@ -2887,10 +2318,8 @@ class _$ClearResult implements ClearResult {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2909,10 +2338,8 @@ class _$ClearResult implements ClearResult {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShowPassword value)? showPassword,
-    TResult Function(ShowConfirmPassword value)? showConfirmPassword,
     TResult Function(ChangeEmail value)? changeEmail,
     TResult Function(ChangePassword value)? changePassword,
-    TResult Function(ChangeConfirmPassword value)? changeConfirmPassword,
     TResult Function(ChangeFirstName value)? changeFirstName,
     TResult Function(ChangeSecondName value)? changeSecondName,
     TResult Function(ChangePhone value)? changePhone,
@@ -2947,12 +2374,10 @@ class _$SignUpStateTearOff {
       EmailVO? emailVO,
       PhoneVO? phoneNumber,
       PasswordVO? password,
-      PasswordVO? confirmPassword,
       bool? showErrorMessages,
       Option<Either<SignupFailures, SocialCredential>>? credential,
       Option<Either<SignupFailures, Unit>>? result,
-      bool? showPassword,
-      bool? showConfirmPassword}) {
+      bool? showPassword}) {
     return _SignUpState(
       isLoading: isLoading,
       firstName: firstName,
@@ -2960,12 +2385,10 @@ class _$SignUpStateTearOff {
       emailVO: emailVO,
       phoneNumber: phoneNumber,
       password: password,
-      confirmPassword: confirmPassword,
       showErrorMessages: showErrorMessages,
       credential: credential,
       result: result,
       showPassword: showPassword,
-      showConfirmPassword: showConfirmPassword,
     );
   }
 }
@@ -2981,14 +2404,12 @@ mixin _$SignUpState {
   EmailVO? get emailVO => throw _privateConstructorUsedError;
   PhoneVO? get phoneNumber => throw _privateConstructorUsedError;
   PasswordVO? get password => throw _privateConstructorUsedError;
-  PasswordVO? get confirmPassword => throw _privateConstructorUsedError;
   bool? get showErrorMessages => throw _privateConstructorUsedError;
   Option<Either<SignupFailures, SocialCredential>>? get credential =>
       throw _privateConstructorUsedError;
   Option<Either<SignupFailures, Unit>>? get result =>
       throw _privateConstructorUsedError;
   bool? get showPassword => throw _privateConstructorUsedError;
-  bool? get showConfirmPassword => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignUpStateCopyWith<SignUpState> get copyWith =>
@@ -3007,12 +2428,10 @@ abstract class $SignUpStateCopyWith<$Res> {
       EmailVO? emailVO,
       PhoneVO? phoneNumber,
       PasswordVO? password,
-      PasswordVO? confirmPassword,
       bool? showErrorMessages,
       Option<Either<SignupFailures, SocialCredential>>? credential,
       Option<Either<SignupFailures, Unit>>? result,
-      bool? showPassword,
-      bool? showConfirmPassword});
+      bool? showPassword});
 }
 
 /// @nodoc
@@ -3031,12 +2450,10 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
     Object? emailVO = freezed,
     Object? phoneNumber = freezed,
     Object? password = freezed,
-    Object? confirmPassword = freezed,
     Object? showErrorMessages = freezed,
     Object? credential = freezed,
     Object? result = freezed,
     Object? showPassword = freezed,
-    Object? showConfirmPassword = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -3063,10 +2480,6 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as PasswordVO?,
-      confirmPassword: confirmPassword == freezed
-          ? _value.confirmPassword
-          : confirmPassword // ignore: cast_nullable_to_non_nullable
-              as PasswordVO?,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -3082,10 +2495,6 @@ class _$SignUpStateCopyWithImpl<$Res> implements $SignUpStateCopyWith<$Res> {
       showPassword: showPassword == freezed
           ? _value.showPassword
           : showPassword // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      showConfirmPassword: showConfirmPassword == freezed
-          ? _value.showConfirmPassword
-          : showConfirmPassword // ignore: cast_nullable_to_non_nullable
               as bool?,
     ));
   }
@@ -3105,12 +2514,10 @@ abstract class _$SignUpStateCopyWith<$Res>
       EmailVO? emailVO,
       PhoneVO? phoneNumber,
       PasswordVO? password,
-      PasswordVO? confirmPassword,
       bool? showErrorMessages,
       Option<Either<SignupFailures, SocialCredential>>? credential,
       Option<Either<SignupFailures, Unit>>? result,
-      bool? showPassword,
-      bool? showConfirmPassword});
+      bool? showPassword});
 }
 
 /// @nodoc
@@ -3131,12 +2538,10 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
     Object? emailVO = freezed,
     Object? phoneNumber = freezed,
     Object? password = freezed,
-    Object? confirmPassword = freezed,
     Object? showErrorMessages = freezed,
     Object? credential = freezed,
     Object? result = freezed,
     Object? showPassword = freezed,
-    Object? showConfirmPassword = freezed,
   }) {
     return _then(_SignUpState(
       isLoading: isLoading == freezed
@@ -3163,10 +2568,6 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as PasswordVO?,
-      confirmPassword: confirmPassword == freezed
-          ? _value.confirmPassword
-          : confirmPassword // ignore: cast_nullable_to_non_nullable
-              as PasswordVO?,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -3183,10 +2584,6 @@ class __$SignUpStateCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
           ? _value.showPassword
           : showPassword // ignore: cast_nullable_to_non_nullable
               as bool?,
-      showConfirmPassword: showConfirmPassword == freezed
-          ? _value.showConfirmPassword
-          : showConfirmPassword // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
@@ -3201,12 +2598,10 @@ class _$_SignUpState implements _SignUpState {
       this.emailVO,
       this.phoneNumber,
       this.password,
-      this.confirmPassword,
       this.showErrorMessages,
       this.credential,
       this.result,
-      this.showPassword,
-      this.showConfirmPassword});
+      this.showPassword});
 
   @override
   final bool? isLoading;
@@ -3221,8 +2616,6 @@ class _$_SignUpState implements _SignUpState {
   @override
   final PasswordVO? password;
   @override
-  final PasswordVO? confirmPassword;
-  @override
   final bool? showErrorMessages;
   @override
   final Option<Either<SignupFailures, SocialCredential>>? credential;
@@ -3230,12 +2623,10 @@ class _$_SignUpState implements _SignUpState {
   final Option<Either<SignupFailures, Unit>>? result;
   @override
   final bool? showPassword;
-  @override
-  final bool? showConfirmPassword;
 
   @override
   String toString() {
-    return 'SignUpState(isLoading: $isLoading, firstName: $firstName, secondName: $secondName, emailVO: $emailVO, phoneNumber: $phoneNumber, password: $password, confirmPassword: $confirmPassword, showErrorMessages: $showErrorMessages, credential: $credential, result: $result, showPassword: $showPassword, showConfirmPassword: $showConfirmPassword)';
+    return 'SignUpState(isLoading: $isLoading, firstName: $firstName, secondName: $secondName, emailVO: $emailVO, phoneNumber: $phoneNumber, password: $password, showErrorMessages: $showErrorMessages, credential: $credential, result: $result, showPassword: $showPassword)';
   }
 
   @override
@@ -3252,16 +2643,12 @@ class _$_SignUpState implements _SignUpState {
                 .equals(other.phoneNumber, phoneNumber) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
-                .equals(other.confirmPassword, confirmPassword) &&
-            const DeepCollectionEquality()
                 .equals(other.showErrorMessages, showErrorMessages) &&
             const DeepCollectionEquality()
                 .equals(other.credential, credential) &&
             const DeepCollectionEquality().equals(other.result, result) &&
             const DeepCollectionEquality()
-                .equals(other.showPassword, showPassword) &&
-            const DeepCollectionEquality()
-                .equals(other.showConfirmPassword, showConfirmPassword));
+                .equals(other.showPassword, showPassword));
   }
 
   @override
@@ -3273,12 +2660,10 @@ class _$_SignUpState implements _SignUpState {
       const DeepCollectionEquality().hash(emailVO),
       const DeepCollectionEquality().hash(phoneNumber),
       const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(confirmPassword),
       const DeepCollectionEquality().hash(showErrorMessages),
       const DeepCollectionEquality().hash(credential),
       const DeepCollectionEquality().hash(result),
-      const DeepCollectionEquality().hash(showPassword),
-      const DeepCollectionEquality().hash(showConfirmPassword));
+      const DeepCollectionEquality().hash(showPassword));
 
   @JsonKey(ignore: true)
   @override
@@ -3294,12 +2679,10 @@ abstract class _SignUpState implements SignUpState {
       EmailVO? emailVO,
       PhoneVO? phoneNumber,
       PasswordVO? password,
-      PasswordVO? confirmPassword,
       bool? showErrorMessages,
       Option<Either<SignupFailures, SocialCredential>>? credential,
       Option<Either<SignupFailures, Unit>>? result,
-      bool? showPassword,
-      bool? showConfirmPassword}) = _$_SignUpState;
+      bool? showPassword}) = _$_SignUpState;
 
   @override
   bool? get isLoading;
@@ -3314,8 +2697,6 @@ abstract class _SignUpState implements SignUpState {
   @override
   PasswordVO? get password;
   @override
-  PasswordVO? get confirmPassword;
-  @override
   bool? get showErrorMessages;
   @override
   Option<Either<SignupFailures, SocialCredential>>? get credential;
@@ -3323,8 +2704,6 @@ abstract class _SignUpState implements SignUpState {
   Option<Either<SignupFailures, Unit>>? get result;
   @override
   bool? get showPassword;
-  @override
-  bool? get showConfirmPassword;
   @override
   @JsonKey(ignore: true)
   _$SignUpStateCopyWith<_SignUpState> get copyWith =>

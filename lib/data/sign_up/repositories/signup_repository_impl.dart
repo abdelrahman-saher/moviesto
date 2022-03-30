@@ -40,9 +40,8 @@ class SignupRepositoryImpl implements SignupRepository {
         email: user.email!.getNotNullValue()!,
         password: user.password!.getNotNullValue()!,
       );
-      final String? uid =
-          await _signupRemoteDataSource.addNewUser(UserModel.fromDomain(user));
-      user.uid = uid;
+      user.uid = authResult.user!.uid;
+      await _signupRemoteDataSource.addNewUser(UserModel.fromDomain(user));
       await _signupLocalDataSource.cacheUser(UserModel.fromDomain(user));
       return right(unit);
     } on FirebaseAuthException catch (e) {
@@ -103,9 +102,8 @@ class SignupRepositoryImpl implements SignupRepository {
       );
       socialAuthResult =
           await authResult.user?.linkWithCredential(credential!.authCredential);
-      final String? uid =
-          await _signupRemoteDataSource.addNewUser(UserModel.fromDomain(user));
-      user.uid = uid;
+      user.uid = authResult.user!.uid;
+      await _signupRemoteDataSource.addNewUser(UserModel.fromDomain(user));
       await _signupLocalDataSource.cacheUser(UserModel.fromDomain(user));
       return right(unit);
     } on FirebaseAuthException catch (e) {

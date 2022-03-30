@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class FailureMessage {
   static const String INVALID_EMAIL_PASSWORD = 'Invalid email or password';
   static const String EMAIL_ALREADY_IN_USE = 'Email already in use';

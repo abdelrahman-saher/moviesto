@@ -56,12 +56,6 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
             showPassword: !state.showPassword!,
           ),
         );
-      } else if (event is ShowConfirmPassword) {
-        emit(
-          state.copyWith(
-            showConfirmPassword: !state.showConfirmPassword!,
-          ),
-        );
       } else if (event is ClearCredentials) {
         emit(
           state.copyWith(
@@ -128,6 +122,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
               state.secondName!.isValid &&
               state.password!.isValid &&
               state.phoneNumber!.isValid;
+          Either<SignupFailures, Unit>? result;
           if (isValid) {
             emit(
               state.copyWith(
@@ -141,22 +136,20 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
                 phoneNumber: state.phoneNumber,
                 email: state.emailVO,
                 password: state.password);
-            final Either<SignupFailures, Unit> result =
-                await _signupRepository.createUserWithSocial(
+            result = await _signupRepository.createUserWithSocial(
               user: userEnitity,
               credential: state.credential!.fold(
                 () => null,
                 (a) => a.fold((l) => null, (r) => r),
               ),
             );
-            emit(
-              SignUpState.initial().copyWith(
-                result: optionOf(result),
-              ),
-            );
           }
           emit(
-            state.copyWith(showErrorMessages: true),
+            state.copyWith(
+              showErrorMessages: true,
+              result: optionOf(result),
+              isLoading: false,
+            ),
           );
         }
       } else if (event is SignUpWithEmailAndPassword) {
@@ -165,6 +158,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
             state.secondName!.isValid &&
             state.password!.isValid &&
             state.phoneNumber!.isValid;
+        Either<SignupFailures, Unit>? result;
         if (isValid) {
           emit(
             state.copyWith(
@@ -178,18 +172,16 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
               phoneNumber: state.phoneNumber,
               email: state.emailVO,
               password: state.password);
-          final Either<SignupFailures, Unit> result =
-              await _signupRepository.createUserWithEmailAndPassword(
+          result = await _signupRepository.createUserWithEmailAndPassword(
             user: userEnitity,
-          );
-          emit(
-            SignUpState.initial().copyWith(
-              result: optionOf(result),
-            ),
           );
         }
         emit(
-          state.copyWith(showErrorMessages: true),
+          state.copyWith(
+            showErrorMessages: true,
+            result: optionOf(result),
+            isLoading: false,
+          ),
         );
       }
     });

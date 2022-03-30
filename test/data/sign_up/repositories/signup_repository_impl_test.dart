@@ -104,12 +104,13 @@ void main() {
                 password: validUser.password!.getNotNullValue()!))
             .thenAnswer((_) async => mockUserCredential);
         when(mockSignupRemoteDataSource
-                .addNewUser(UserModel.fromDomain(validUser)))
+                .addNewUser(UserModel.fromDomain(validUser..uid = "user-id")))
             .thenAnswer((_) async => "user-id");
         when(mockSignupLocalDataSource
                 .cacheUser(UserModel.fromDomain(validUser)))
             .thenAnswer((_) async => Future.value());
         when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.uid).thenReturn("user-id");
         when(mockUser.linkWithCredential(socialCredential.authCredential))
             .thenAnswer((_) async => mockUserCredential);
         final result =
@@ -218,20 +219,22 @@ void main() {
                 password: validUser.password!.getNotNullValue()!))
             .thenAnswer((_) async => mockUserCredential);
         when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.uid).thenReturn("uid");
         when(mockUser.linkWithCredential(socialCredential.authCredential))
             .thenAnswer((_) async => mockUserCredential);
         when(mockUser.delete()).thenAnswer((_) async => Future.value());
         when(mockFirebaseAuth.signOut())
             .thenAnswer((_) async => Future.value());
         when(mockSignupRemoteDataSource
-                .addNewUser(UserModel.fromDomain(validUser)))
+                .addNewUser(UserModel.fromDomain(validUser..uid = 'uid')))
             .thenThrow(const ServerFailure(FailureMessage.UNKNOWN_ERROR));
         final result =
             await usecase.createUserWithEmailAndPassword(user: validUser);
         verify(mockSignupRemoteDataSource
-                .addNewUser(UserModel.fromDomain(validUser)))
+                .addNewUser(UserModel.fromDomain(validUser..uid = 'uid')))
             .called(1);
-        verify(mockUserCredential.user?.delete()).called(greaterThanOrEqualTo(1));
+        verify(mockUserCredential.user?.delete())
+            .called(greaterThanOrEqualTo(1));
         verify(mockFirebaseAuth.signOut()).called(1);
         verifyNever(mockSignupLocalDataSource
             .cacheUser(UserModel.fromDomain(validUser)));
@@ -244,21 +247,22 @@ void main() {
                 password: validUser.password!.getNotNullValue()!))
             .thenAnswer((_) async => mockUserCredential);
         when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.uid).thenReturn("uid");
         when(mockUser.linkWithCredential(socialCredential.authCredential))
             .thenAnswer((_) async => mockUserCredential);
         when(mockSignupRemoteDataSource
-                .addNewUser(UserModel.fromDomain(validUser)))
+                .addNewUser(UserModel.fromDomain(validUser..uid = 'uid')))
             .thenAnswer((_) async => "uid");
         when(mockSignupLocalDataSource
-                .cacheUser(UserModel.fromDomain(validUser)))
+                .cacheUser(UserModel.fromDomain(validUser..uid = 'uid')))
             .thenThrow(const LocalFailure(FailureMessage.CACHING_ERROR));
         final result =
             await usecase.createUserWithEmailAndPassword(user: validUser);
         verify(mockSignupRemoteDataSource
-                .addNewUser(UserModel.fromDomain(validUser)))
+                .addNewUser(UserModel.fromDomain(validUser..uid = 'uid')))
             .called(1);
         verify(mockSignupLocalDataSource
-                .cacheUser(UserModel.fromDomain(validUser)))
+                .cacheUser(UserModel.fromDomain(validUser..uid = 'uid')))
             .called(1);
         expect(result, equals(const Right(unit)));
       });
@@ -270,12 +274,13 @@ void main() {
                 password: validUser.password!.getNotNullValue()!))
             .thenAnswer((_) async => mockUserCredential);
         when(mockSignupRemoteDataSource
-                .addNewUser(UserModel.fromDomain(validUser)))
+                .addNewUser(UserModel.fromDomain(validUser..uid = 'user-id')))
             .thenAnswer((_) async => "user-id");
         when(mockSignupLocalDataSource
                 .cacheUser(UserModel.fromDomain(validUser)))
             .thenAnswer((_) async => Future.value());
         when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.uid).thenReturn("user-id");
         when(mockUser.linkWithCredential(socialCredential.authCredential))
             .thenAnswer((_) async => mockSocialUserCredential);
         final result = await usecase.createUserWithSocial(
@@ -385,6 +390,7 @@ void main() {
                 password: validUser.password!.getNotNullValue()!))
             .thenAnswer((_) async => mockUserCredential);
         when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.uid).thenReturn("user-id");
         when(mockUser.linkWithCredential(socialCredential.authCredential))
             .thenAnswer((_) async => mockSocialUserCredential);
         when(mockSocialUserCredential.user).thenAnswer((_) => mockSocialUser);
@@ -399,8 +405,10 @@ void main() {
         verify(mockSignupRemoteDataSource
                 .addNewUser(UserModel.fromDomain(validUser)))
             .called(1);
-        verify(mockUserCredential.user?.delete()).called(greaterThanOrEqualTo(1));
-        verify(mockSocialUserCredential.user?.delete()).called(greaterThanOrEqualTo(1));
+        verify(mockUserCredential.user?.delete())
+            .called(greaterThanOrEqualTo(1));
+        verify(mockSocialUserCredential.user?.delete())
+            .called(greaterThanOrEqualTo(1));
         verify(mockFirebaseAuth.signOut()).called(1);
         verifyNever(mockSignupLocalDataSource
             .cacheUser(UserModel.fromDomain(validUser)));
@@ -413,6 +421,8 @@ void main() {
                 password: validUser.password!.getNotNullValue()!))
             .thenAnswer((_) async => mockUserCredential);
         when(mockUserCredential.user).thenAnswer((_) => mockUser);
+        when(mockUser.uid).thenReturn("user-id");
+
         when(mockUser.linkWithCredential(socialCredential.authCredential))
             .thenAnswer((_) async => mockUserCredential);
         when(mockSignupRemoteDataSource
@@ -493,7 +503,8 @@ void main() {
         verifyNever(mockSignupLocalDataSource.cacheUser(any));
         final result = await usecase.createUserWithSocial(
             user: validUser, credential: socialCredential);
-        verify(mockUserCredential.user?.delete()).called(greaterThanOrEqualTo(1));
+        verify(mockUserCredential.user?.delete())
+            .called(greaterThanOrEqualTo(1));
         verify(mockFirebaseAuth.signOut()).called(1);
         expect(
           result,
