@@ -34,5 +34,5 @@ class UserModel extends Equatable {
 
   @override
   List<Object?> get props =>
-      [firstName, secondName, phoneNumber, email, password];
+      [uid, firstName, secondName, phoneNumber, email, password];
 }

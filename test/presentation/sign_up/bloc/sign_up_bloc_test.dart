@@ -8,7 +8,6 @@ import 'package:moviesto/data/sign_up/failures.dart';
 import 'package:moviesto/domain/sign_up/entities/social_credential.dart';
 import 'package:moviesto/domain/sign_up/entities/user.dart';
 import 'package:moviesto/domain/sign_up/repositories/signup_repository.dart';
-import 'package:moviesto/domain/sign_up/usecases/signup_with_facebook.dart';
 import 'package:moviesto/domain/sign_up/value_objects/email.dart';
 import 'package:moviesto/domain/sign_up/value_objects/name.dart';
 import 'package:moviesto/domain/sign_up/value_objects/password.dart';
@@ -49,14 +48,6 @@ void main() {
     secondName: NameVO(secondName),
     phoneNumber: PhoneVO(phone),
     password: PasswordVO(password),
-  );
-  UserEnitity notValidUserEnitity = UserEnitity(
-    uid: "",
-    email: EmailVO(notValidemail),
-    firstName: NameVO(notValidfirstName),
-    secondName: NameVO(notValidsecondName),
-    phoneNumber: PhoneVO(notValidphone),
-    password: PasswordVO(notValidpassword),
   );
   final SignUpState stateWithCredentials = SignUpState.initial().copyWith(
     credential: optionOf(

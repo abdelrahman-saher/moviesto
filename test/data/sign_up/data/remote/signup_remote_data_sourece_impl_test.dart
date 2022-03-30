@@ -20,14 +20,12 @@ void main() {
   late MockCollectionReference<Map<String, dynamic>> mockCollectionReference;
   late MockDocumentReference<Map<String, dynamic>> mockDocumentReference;
   late SignupRemoteDataSourceImpl usecase;
-  late MockDocumentSnapshot<Map<String, dynamic>> mockDocumentSnapshot;
   const UserModel userModel = UserModel(
       "uid", "firstName", "secondName", "phoneNumber", "email", "password");
   setUp(() {
     mockFirebaseFirestore = MockFirebaseFirestore();
     mockCollectionReference = MockCollectionReference();
     mockDocumentReference = MockDocumentReference();
-    mockDocumentSnapshot = MockDocumentSnapshot();
     when(mockFirebaseFirestore.collection(DBContract.USERSCOLLECTION))
         .thenReturn(mockCollectionReference);
     usecase = SignupRemoteDataSourceImpl(mockFirebaseFirestore);
